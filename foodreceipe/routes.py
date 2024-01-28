@@ -5,4 +5,4 @@ from foodreceipe.models import Category, Receipe, Ingredients
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("receipe.html")
