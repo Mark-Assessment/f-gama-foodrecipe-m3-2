@@ -16,3 +16,13 @@ def categories():
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
    return render_template("add_category.html")
+
+
+@app.route("/ingredients")
+def ingredients():
+    return render_template("ingredients.html")
+
+
+@app.route("/add_ingredients", methods=["GET", "POST"])
+def add_ingredients():
+   return render_template("add_ingredients.html")
