@@ -1,4 +1,4 @@
-from flask import render_template, request, url_for
+from flask import render_template, request, url_for, redirect
 from foodreceipe import app, db
 from foodreceipe.models import Category, Receipe, Ingredients
 
@@ -10,7 +10,8 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    categories = list(Category.query.order_by(Category.category_name).all())
+    return render_template("categories.html", categories=categories)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
@@ -20,6 +21,7 @@ def add_category():
         db.session.add(category)
         db.session.commit()
         return redirect(url_for("categories"))
+        print("success")
     return render_template("add_category.html")
 
 
