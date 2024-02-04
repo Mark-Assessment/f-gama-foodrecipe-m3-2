@@ -21,15 +21,20 @@ def add_category():
         db.session.add(category)
         db.session.commit()
         return redirect(url_for("categories"))
-        print("success")
     return render_template("add_category.html")
 
 
 @app.route("/ingredients")
 def ingredients():
-    return render_template("ingredients.html")
+    ingredients = list(Ingredients.query.order_by(Ingredients.ingredient_name).all())
+    return render_template("ingredients.html", ingredients=ingredients)
 
 
 @app.route("/add_ingredients", methods=["GET", "POST"])
 def add_ingredients():
-   return render_template("add_ingredients.html")
+    if request.method == "POST":
+        ingredients = Ingredients(ingredient_name=request.form.get("ingredient_name"))
+        db.session.add(ingredients)
+        db.session.commit()
+        return redirect(url_for("ingredients"))
+    return render_template("add_ingredients.html")
