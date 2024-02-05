@@ -38,3 +38,23 @@ def add_ingredients():
         db.session.commit()
         return redirect(url_for("ingredients"))
     return render_template("add_ingredients.html")
+
+
+@app.route("/edit_category/<int:category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    category = Category.query.get_or_404(category_id)
+    if request.method == "POST":
+        category.category_name = request.form.get("category_name")
+        db.session.commit()
+        return redirect(url_for("categories"))
+    return render_template("edit_category.html", category=category)
+
+
+@app.route("/edit_ingredients/<int:ingredients_id>", methods=["GET", "POST"])
+def edit_ingredients(ingredients_id):
+    ingredients = Ingredients.query.get_or_404(ingredients_id)
+    if request.method == "POST":
+        ingredients.ingredient_name = request.form.get("ingredient_name")
+        db.session.commit()
+        return redirect(url_for("ingredients"))
+    return render_template("edit_ingredients.html", ingredients=ingredients)
