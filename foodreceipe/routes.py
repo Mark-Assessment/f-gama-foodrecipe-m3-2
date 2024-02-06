@@ -58,3 +58,19 @@ def edit_ingredients(ingredients_id):
         db.session.commit()
         return redirect(url_for("ingredients"))
     return render_template("edit_ingredients.html", ingredients=ingredients)
+
+
+@app.route("/delete_category/<int:category_id>")
+def delete_category(category_id):
+    category = Category.query.get_or_404(category_id)
+    db.session.delete(category)
+    db.session.commit()
+    return redirect(url_for("categories"))
+
+
+@app.route("/delete_ingredients/<int:ingredients_id>")
+def delete_ingredients(ingredients_id):
+    ingredients = ingredients.query.get_or_404(ingredients_id)
+    db.session.delete(ingredients)
+    db.session.commit()
+    return redirect(url_for("ingredients"))

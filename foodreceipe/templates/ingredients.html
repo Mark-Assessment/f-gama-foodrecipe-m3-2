@@ -20,7 +20,7 @@
             </div>
             <div class="card-action">
                 <a href="{{ url_for('edit_ingredients', ingredients_id=ingredients.id) }}" class="btn green accent-4">Edit</a>
-                <a href="#" class="btn red">Delete</a>
+                <a href="{{ url_for('delete_ingredients', ingredients_id=ingredients.id) }}" class="btn red">Delete</a>
             </div>
         </div>
     </div>
