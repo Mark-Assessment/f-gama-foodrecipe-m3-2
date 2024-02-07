@@ -19,7 +19,7 @@
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="">New Receipe</a></li>
+                <li><a href="{{ url_for('add_receipe') }}">New Receipe</a></li>
                 <li><a href="{{ url_for('categories') }}">Categories</a></li>
                 <li><a href="{{ url_for('ingredients') }}">Ingredients</a></li>
               </ul>
@@ -28,7 +28,7 @@
         <!-- mobile sidenav -->
           <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="">New Receipe</a></li>
+            <li><a href="{{ url_for('add_receipe') }}">New Receipe</a></li>
             <li><a href="{{ url_for('categories') }}">Categories</a></li>
             <li><a href="{{ url_for('ingredients') }}">Ingredients</a></li>
           </ul>

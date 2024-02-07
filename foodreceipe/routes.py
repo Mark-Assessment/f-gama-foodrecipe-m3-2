@@ -74,3 +74,21 @@ def delete_ingredients(ingredients_id):
     db.session.delete(ingredients)
     db.session.commit()
     return redirect(url_for("ingredients"))
+
+
+@app.route("/add_receipe", methods=["GET", "POST"])
+def add_receipe():
+    categories = list(Category.query.order_by(Category.category_name).all())
+    ingredients = list(Ingredients.query.order_by(Ingredients.ingredient_name).all())
+    if request.method == "POST":
+        receipes = Receipe(
+            receipe_name=request.form.get("receipe_name"),
+            receipe_description=request.form.get("receipe_description"),
+            prep_method=request.form.get("prep_method"),
+            ingredients_id=request.form.get("ingredients_id"),
+            category_id=request.form.get("category_id")
+        )
+        db.session.add(receipes)
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("add_receipe.html", categories=categories, ingredients=ingredients)
