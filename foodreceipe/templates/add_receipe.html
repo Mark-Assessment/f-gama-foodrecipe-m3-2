@@ -17,8 +17,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-          <textarea id="receipe_description" name="receipe_description" minlength="5"
-          maxlength="200" type="text" class="materialize-textarea validate" required>
+          <textarea id="receipe_description" name="receipe_description" minlength="5" maxlength="500" type="text" class="materialize-textarea validate" required>
           </textarea>
           <label for="receipe_description">Receipe description</label>
         </div>
@@ -27,7 +26,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-          <textarea id="prep_method" name="prep_method" minlength="5" maxlength="200" type="text" class="materialize-textarea validate" required>
+          <textarea id="prep_method" name="prep_method" minlength="5" maxlength="2000" type="text" class="materialize-textarea validate" required>
           </textarea>
           <label for="prep_method">Receipe method</label>
         </div>
@@ -49,7 +48,7 @@
      <div class="row">
       <div class="input-field col s12">
           <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
-          <select id="ingredients_id" name="ingredients_id" class="validate" required>
+          <select multiple id="ingredients_id" name="ingredients_id" class="validate" required>
               <option value="" disabled selected>Choose Ingredient</option>
               {% for ingredients in ingredients %}
                   <option value="{{ ingredients.id }}">{{ ingredients.ingredient_name }}</option>

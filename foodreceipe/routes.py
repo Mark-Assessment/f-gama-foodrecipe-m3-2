@@ -5,7 +5,8 @@ from foodreceipe.models import Category, Receipe, Ingredients
 
 @app.route("/")
 def home():
-    return render_template("receipe.html")
+    receipes = list(Receipe.query.order_by(Receipe.id).all())
+    return render_template("receipe.html", receipes=receipes)
 
 
 @app.route("/categories")
