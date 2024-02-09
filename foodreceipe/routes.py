@@ -70,7 +70,7 @@ def delete_category(category_id):
 
 @app.route("/delete_ingredients/<int:ingredients_id>")
 def delete_ingredients(ingredients_id):
-    ingredients = ingredients.query.get_or_404(ingredients_id)
+    ingredients = Ingredients.query.get_or_404(ingredients_id)
     db.session.delete(ingredients)
     db.session.commit()
     return redirect(url_for("ingredients"))
