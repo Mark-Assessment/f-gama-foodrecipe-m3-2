@@ -86,10 +86,26 @@ def add_receipe():
             receipe_name=request.form.get("receipe_name"),
             receipe_description=request.form.get("receipe_description"),
             prep_method=request.form.get("prep_method"),
-            ingredients_id=request.form.get("ingredients_id"),
+            ingredients_id=request.form.getlist("ingredients_id"),
             category_id=request.form.get("category_id")
         )
         db.session.add(receipes)
         db.session.commit()
         return redirect(url_for("home"))
     return render_template("add_receipe.html", categories=categories, ingredients=ingredients)
+
+
+@app.route("/edit_receipe/<int:receipe_id>", methods=["GET", "POST"])
+def edit_receipe(receipe_id):
+    receipe = Receipe.query.get_or_404(receipe_id)
+    categories = list(Category.query.order_by(Category.category_name).all())
+    ingredients = list(Ingredients.query.order_by(Ingredients.ingredient_name).all())
+    if request.method == "POST":
+        receipe.receipe_name = request.form.get("receipe_name"),
+        receipe.receipe_description=request.form.get("receipe_description"),
+        receipe.prep_method=request.form.get("prep_method"),
+        receipe.ingredients_id=request.form.getlist("ingredients_id"),
+        receipe.category_id=request.form.get("category_id")
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("edit_receipe.html", receipe=receipe, categories=categories, ingredients=ingredients)
