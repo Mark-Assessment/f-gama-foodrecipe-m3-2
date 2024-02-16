@@ -6,6 +6,7 @@ from foodreceipe.models import Category, Receipe, Ingredients
 @app.route("/")
 def home():
     receipes = list(Receipe.query.order_by(Receipe.id).all())
+
     return render_template("receipe.html", receipes=receipes)
 
 
@@ -104,8 +105,17 @@ def edit_receipe(receipe_id):
         receipe.receipe_name = request.form.get("receipe_name"),
         receipe.receipe_description=request.form.get("receipe_description"),
         receipe.prep_method=request.form.get("prep_method"),
-        receipe.ingredients_id=request.form.getlist("ingredients_id"),
+        receipe.ingredients_ids=request.form.getlist("ingredients_id"),
         receipe.category_id=request.form.get("category_id")
         db.session.commit()
+        print('The list ',request.form.getlist("ingredients_id"))
         return redirect(url_for("home"))
     return render_template("edit_receipe.html", receipe=receipe, categories=categories, ingredients=ingredients)
+
+
+@app.route("/delete_receipe/<int:receipe_id>")
+def delete_receipe(receipe_id):
+    receipe = Receipe.query.get_or_404(receipe_id)
+    db.session.delete(receipe)
+    db.session.commit()
+    return redirect(url_for("home"))

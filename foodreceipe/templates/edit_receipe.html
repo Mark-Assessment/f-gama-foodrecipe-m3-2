@@ -19,7 +19,7 @@
           <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
           <textarea id="receipe_description" name="receipe_description" minlength="5" maxlength="1000" type="text" 
           class="materialize-textarea validate" required>
-          {{ receipe.receipe_description }}
+          {{- receipe.receipe_description -}}
           </textarea>
           <label for="receipe_description">Receipe description</label>
         </div>
@@ -30,7 +30,7 @@
           <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
           <textarea id="prep_method" name="prep_method" minlength="5" maxlength="2000" type="text" class="materialize-textarea 
           validate" required>
-          {{ receipe.prep_method }}
+          {{- receipe.prep_method -}}
           </textarea>
           <label for="prep_method">Receipe method</label>
         </div>
