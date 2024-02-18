@@ -6,8 +6,9 @@ from foodreceipe.models import Category, Receipe, Ingredients
 @app.route("/")
 def home():
     receipes = list(Receipe.query.order_by(Receipe.id).all())
-
-    return render_template("receipe.html", receipes=receipes)
+    ingre = list(Ingredients.query.order_by(Ingredients.id).all())
+    print('The new list ',list(Ingredients.query.order_by(Ingredients.id).all()))
+    return render_template("receipe.html", receipes=receipes, ingre=ingre)
 
 
 @app.route("/categories")
@@ -87,7 +88,7 @@ def add_receipe():
             receipe_name=request.form.get("receipe_name"),
             receipe_description=request.form.get("receipe_description"),
             prep_method=request.form.get("prep_method"),
-            ingredients_id=request.form.getlist("ingredients_id"),
+            ingredients_ids=request.form.getlist("ingredients_id"),
             category_id=request.form.get("category_id")
         )
         db.session.add(receipes)
