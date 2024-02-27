@@ -59,7 +59,7 @@
           <select multiple id="ingredients_id" name="ingredients_id" class="validate" required>
               <option value="" disabled selected>Choose Ingredient</option>
               {% for ingredients in allingredients %}
-                  {% if ingredients==ingredient_ids %}
+                  {% if ingredients==recipeingredients %}
                       <option value="{{ ingredients.id }}" selected>{{ ingredients.ingredient_name }}</option>
                   {% else %}
                       <option value="{{ ingredients.id }}">{{ ingredients.ingredient_name }}</option>

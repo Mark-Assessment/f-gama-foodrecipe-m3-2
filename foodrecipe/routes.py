@@ -6,7 +6,6 @@ from foodrecipe.models import Category, Recipe, Ingredients, Ingredient_index
 @app.route("/")
 def home():
     recipes = list(Recipe.query.order_by(Recipe.id).all())
-    print('The receipe list ',list(Recipe.query.order_by(Recipe.id).all()))
     return render_template("recipe.html", recipes=recipes)
 
 
@@ -87,12 +86,18 @@ def add_recipe():
             recipe_name=request.form.get("recipe_name"),
             recipe_description=request.form.get("recipe_description"),
             prep_method=request.form.get("prep_method"),
-            ingredients_ids=request.form.getlist("ingredients_id"),
             category_id=request.form.get("category_id")
         )
         db.session.add(recipes)
         db.session.commit()
-        print('add list ',request.form.getlist("ingredients_id"))
+        ingredients_id=request.form.getlist("ingredients_id")
+        #print('The list ',request.form.getlist("ingredients_id"))
+        for ingredient_id in ingredients_id:
+            index_entry = Ingredient_index(
+            recipe_id=recipes.id,
+            ingredient_id=ingredient_id)
+            db.session.add(index_entry)
+            db.session.commit()
         return redirect(url_for("home"))
     return render_template("add_recipe.html", categories=categories, ingredients=ingredients)
 
@@ -102,18 +107,23 @@ def edit_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
     categories = list(Category.query.order_by(Category.category_name).all())
     allingredients = list(Ingredients.query.order_by(Ingredients.ingredient_name).all())
-    ingredient_ids = recipe.ingredients_ids
-    ingredients = Ingredients.query.filter_by(Ingredients.id==ingredient_ids)
-    print('recipe ingredient ids ',Ingredients.query.filter_by(Ingredients.id.in_(ingredient_ids)).all())
+    recipeingredients = Ingredient_index.query.with_entities(Ingredient_index.ingredient_id).all()
+    print('ids',Ingredient_index.query.with_entities(Ingredient_index.ingredient_id).all())
     if request.method == "POST":
         recipe.recipe_name = request.form.get("recipe_name"),
         recipe.recipe_description=request.form.get("recipe_description"),
         recipe.prep_method=request.form.get("prep_method"),
-        recipe.ingredients_ids=request.form.getlist("ingredients_id"),
         recipe.category_id=request.form.get("category_id")
         db.session.commit()
+        ingredients_id=request.form.getlist("ingredients_id")
+        for ingredient_id in ingredients_id:
+            index_entry = Ingredient_index(
+            recipe_id=recipe.id,
+            ingredient_id=ingredient_id)
+            db.session.add(index_entry)
+            db.session.commit()
         return redirect(url_for("home"))
-    return render_template("edit_recipe.html", recipe=recipe, categories=categories, allingredients=allingredients)
+    return render_template("edit_recipe.html", recipe=recipe, categories=categories, allingredients=allingredients, recipeingredients=recipeingredients)
 
 
 @app.route("/delete_recipe/<int:recipe_id>")

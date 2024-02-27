@@ -39,7 +39,7 @@ class Ingredient_index(db.Model):
     # schema for the Ingredient_index model
     id = db.Column(db.Integer, primary_key=True)
     recipe_id =  db.Column(db.Integer, db.ForeignKey("recipe.id", ondelete="CASCADE"), nullable=False)
-    ingredient_id = db.Column(db.Integer, db.ForeignKey("ingredients.id", ondelete="CASCADE"), nullable=False)
+    ingredient_id = db.Column(db.Text, db.ForeignKey("ingredients.id", ondelete="CASCADE"), nullable=False)
 
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
