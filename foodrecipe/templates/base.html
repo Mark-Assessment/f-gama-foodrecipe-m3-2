@@ -8,18 +8,18 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <title>Food receipe</title>
+    <title>Food recipe</title>
 </head>
 <body>
     <header>
         <!-- Top nav bar -->
         <nav class="light-blue darken-1">
             <div class="nav-wrapper">
-              <a href="{{ url_for('home') }}" class="brand-logo">Food Receipe <i class="fa-solid fa-utensils right"></i></a>
+              <a href="{{ url_for('home') }}" class="brand-logo">Food Recipe <i class="fa-solid fa-utensils right"></i></a>
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down">
                 <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="{{ url_for('add_receipe') }}">New Receipe</a></li>
+                <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
                 <li><a href="{{ url_for('categories') }}">Categories</a></li>
                 <li><a href="{{ url_for('ingredients') }}">Ingredients</a></li>
               </ul>
@@ -28,7 +28,7 @@
         <!-- mobile sidenav -->
           <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('add_receipe') }}">New Receipe</a></li>
+            <li><a href="{{ url_for('add_recipe') }}">New Recipe</a></li>
             <li><a href="{{ url_for('categories') }}">Categories</a></li>
             <li><a href="{{ url_for('ingredients') }}">Ingredients</a></li>
           </ul>
@@ -43,7 +43,7 @@
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
-              <h5><a class="white-text hoverable" href="{{ url_for('home') }}" class="brand-logo">Food Receipe <i class="fa-solid fa-utensils"></i></a></h5>
+              <h5><a class="white-text hoverable" href="{{ url_for('home') }}" class="brand-logo">Food Recipe <i class="fa-solid fa-utensils"></i></a></h5>
               <img class="circle responsive-img" alt="" src="{{ url_for('static', filename='images/foodimage.jpg')}}">
             </div>
             <div class="col l4 offset-l2 s12">

@@ -1,27 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="light-blue-text text-darken-4 center-align">Edit receipe</h3>
+<h3 class="light-blue-text text-darken-4 center-align">Edit recipe</h3>
 
 <div class="row card-panel grey lighten-5">
-    <form class="col s12" method="POST" action="{{ url_for('edit_receipe', receipe_id=receipe.id) }}">
-      <!--Receipe name-->
+    <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe.id) }}">
+      <!--Recipe name-->
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
-          <input id="receipe_name" name="receipe_name" value="{{receipe.receipe_name }}" minlength="3" maxlength="50" type="text" class="validate" required>
-          <label for="receipe_name">Receipe Name</label>
+          <input id="recipe_name" name="recipe_name" value="{{recipe.recipe_name }}" minlength="3" maxlength="50" type="text" class="validate" required>
+          <label for="recipe_name">Recipe Name</label>
         </div>
       </div>
-      <!--receipe description-->
+      <!--recipe description-->
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-          <textarea id="receipe_description" name="receipe_description" minlength="5" maxlength="1000" type="text" 
+          <textarea id="recipe_description" name="recipe_description" minlength="5" maxlength="1000" type="text" 
           class="materialize-textarea validate" required>
-          {{- receipe.receipe_description -}}
+          {{- recipe.recipe_description -}}
           </textarea>
-          <label for="receipe_description">Receipe description</label>
+          <label for="recipe_description">Recipe description</label>
         </div>
       </div>
       <!--Preparation method-->
@@ -30,9 +30,9 @@
           <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
           <textarea id="prep_method" name="prep_method" minlength="5" maxlength="2000" type="text" class="materialize-textarea 
           validate" required>
-          {{- receipe.prep_method -}}
+          {{- recipe.prep_method -}}
           </textarea>
-          <label for="prep_method">Receipe method</label>
+          <label for="prep_method">Recipe method</label>
         </div>
       </div>
       <!-- category id -->
@@ -42,7 +42,7 @@
             <select id="category_id" name="category_id" class="validate" required>
                 <option value="" disabled selected>Choose Category</option>
                 {% for category in categories %}
-                    {% if category == receipe.category %}
+                    {% if category == recipe.category %}
                         <option value="{{ category.id }}" selected>{{ category.category_name }}</option>
                     {% else %}
                         <option value="{{ category.id }}">{{ category.category_name }}</option>
@@ -58,8 +58,8 @@
           <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
           <select multiple id="ingredients_id" name="ingredients_id" class="validate" required>
               <option value="" disabled selected>Choose Ingredient</option>
-              {% for ingredients in ingredients %}
-                  {% if ingredients==receipe.ingredients %}
+              {% for ingredients in allingredients %}
+                  {% if ingredients==ingredient_ids %}
                       <option value="{{ ingredients.id }}" selected>{{ ingredients.ingredient_name }}</option>
                   {% else %}
                       <option value="{{ ingredients.id }}">{{ ingredients.ingredient_name }}</option>
@@ -73,7 +73,7 @@
       <div class="row">
         <div class=" col s12 center-align">
           <button type="submit" class="btn-large light-blue darken-1">
-            Edit Receipe <i class="fas fa-edit right"></i>
+            Edit Recipe <i class="fas fa-edit right"></i>
           </button>
         </div>
       </div>

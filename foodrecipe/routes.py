@@ -1,14 +1,13 @@
 from flask import render_template, request, url_for, redirect
-from foodreceipe import app, db
-from foodreceipe.models import Category, Receipe, Ingredients
+from foodrecipe import app, db
+from foodrecipe.models import Category, Recipe, Ingredients, Ingredient_index
 
 
 @app.route("/")
 def home():
-    receipes = list(Receipe.query.order_by(Receipe.id).all())
-    ingre = list(Ingredients.query.order_by(Ingredients.id).all())
-    print('The new list ',list(Ingredients.query.order_by(Ingredients.id).all()))
-    return render_template("receipe.html", receipes=receipes, ingre=ingre)
+    recipes = list(Recipe.query.order_by(Recipe.id).all())
+    print('The receipe list ',list(Recipe.query.order_by(Recipe.id).all()))
+    return render_template("recipe.html", recipes=recipes)
 
 
 @app.route("/categories")
@@ -79,44 +78,69 @@ def delete_ingredients(ingredients_id):
     return redirect(url_for("ingredients"))
 
 
-@app.route("/add_receipe", methods=["GET", "POST"])
-def add_receipe():
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
     categories = list(Category.query.order_by(Category.category_name).all())
     ingredients = list(Ingredients.query.order_by(Ingredients.ingredient_name).all())
     if request.method == "POST":
-        receipes = Receipe(
-            receipe_name=request.form.get("receipe_name"),
-            receipe_description=request.form.get("receipe_description"),
+        recipes = Recipe(
+            recipe_name=request.form.get("recipe_name"),
+            recipe_description=request.form.get("recipe_description"),
             prep_method=request.form.get("prep_method"),
             ingredients_ids=request.form.getlist("ingredients_id"),
             category_id=request.form.get("category_id")
         )
-        db.session.add(receipes)
+        db.session.add(recipes)
         db.session.commit()
+        print('add list ',request.form.getlist("ingredients_id"))
         return redirect(url_for("home"))
-    return render_template("add_receipe.html", categories=categories, ingredients=ingredients)
+    return render_template("add_recipe.html", categories=categories, ingredients=ingredients)
 
 
-@app.route("/edit_receipe/<int:receipe_id>", methods=["GET", "POST"])
-def edit_receipe(receipe_id):
-    receipe = Receipe.query.get_or_404(receipe_id)
+@app.route("/edit_recipe/<int:recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
     categories = list(Category.query.order_by(Category.category_name).all())
-    ingredients = list(Ingredients.query.order_by(Ingredients.ingredient_name).all())
+    allingredients = list(Ingredients.query.order_by(Ingredients.ingredient_name).all())
+    ingredient_ids = recipe.ingredients_ids
+    ingredients = Ingredients.query.filter_by(Ingredients.id==ingredient_ids)
+    print('recipe ingredient ids ',Ingredients.query.filter_by(Ingredients.id.in_(ingredient_ids)).all())
     if request.method == "POST":
-        receipe.receipe_name = request.form.get("receipe_name"),
-        receipe.receipe_description=request.form.get("receipe_description"),
-        receipe.prep_method=request.form.get("prep_method"),
-        receipe.ingredients_ids=request.form.getlist("ingredients_id"),
-        receipe.category_id=request.form.get("category_id")
+        recipe.recipe_name = request.form.get("recipe_name"),
+        recipe.recipe_description=request.form.get("recipe_description"),
+        recipe.prep_method=request.form.get("prep_method"),
+        recipe.ingredients_ids=request.form.getlist("ingredients_id"),
+        recipe.category_id=request.form.get("category_id")
         db.session.commit()
-        print('The list ',request.form.getlist("ingredients_id"))
         return redirect(url_for("home"))
-    return render_template("edit_receipe.html", receipe=receipe, categories=categories, ingredients=ingredients)
+    return render_template("edit_recipe.html", recipe=recipe, categories=categories, allingredients=allingredients)
 
 
-@app.route("/delete_receipe/<int:receipe_id>")
-def delete_receipe(receipe_id):
-    receipe = Receipe.query.get_or_404(receipe_id)
-    db.session.delete(receipe)
+@app.route("/delete_recipe/<int:recipe_id>")
+def delete_recipe(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
+    db.session.delete(recipe)
     db.session.commit()
     return redirect(url_for("home"))
+
+
+@app.route('/get_ingredients/<int:recipe_id>')
+def get_ingredients(recipe_id):
+    try:
+        # Assuming you have a Recipe model
+        recipe = Recipe.query.get(recipe_id)
+        if not recipe:
+            return "Recipe not found."
+
+        # Split the ingredients_ids (assuming it's a comma-separated string)
+        ingredient_ids = recipe.ingredients_ids.split(',')
+
+        # Query Ingredients based on ingredient IDs
+        ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_ids)).all()
+
+        # Extract ingredient names
+        ingredient_names = [ingredient.ingredient_name for ingredient in ingredients]
+
+        return ', '.join(ingredient_names)  # Comma-separated list of ingredient names
+    except Exception as e:
+        return str(e)
