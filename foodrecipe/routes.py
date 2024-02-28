@@ -6,7 +6,10 @@ from foodrecipe.models import Category, Recipe, Ingredients, Ingredient_index
 @app.route("/")
 def home():
     recipes = list(Recipe.query.order_by(Recipe.id).all())
-    return render_template("recipe.html", recipes=recipes)
+    ingredients = Ingredient_index.query.filter_by(recipe_id=Recipe.id).all()
+    ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
+    full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
+    return render_template("recipe.html", recipes=recipes, full_ingredients=full_ingredients)
 
 
 @app.route("/categories")
@@ -107,8 +110,11 @@ def edit_recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
     categories = list(Category.query.order_by(Category.category_name).all())
     allingredients = list(Ingredients.query.order_by(Ingredients.ingredient_name).all())
-    recipeingredients = Ingredient_index.query.with_entities(Ingredient_index.ingredient_id).all()
-    print('ids',Ingredient_index.query.with_entities(Ingredient_index.ingredient_id).all())
+    ingredients = Ingredient_index.query.filter_by(recipe_id=recipe.id).all()
+    ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
+    print('ids', [ingredient.ingredient_id for ingredient in ingredients])
+    full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
+    print('names', Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all())
     if request.method == "POST":
         recipe.recipe_name = request.form.get("recipe_name"),
         recipe.recipe_description=request.form.get("recipe_description"),
@@ -123,7 +129,7 @@ def edit_recipe(recipe_id):
             db.session.add(index_entry)
             db.session.commit()
         return redirect(url_for("home"))
-    return render_template("edit_recipe.html", recipe=recipe, categories=categories, allingredients=allingredients, recipeingredients=recipeingredients)
+    return render_template("edit_recipe.html", recipe=recipe, categories=categories, allingredients=allingredients,full_ingredients=full_ingredients)
 
 
 @app.route("/delete_recipe/<int:recipe_id>")
@@ -134,23 +140,3 @@ def delete_recipe(recipe_id):
     return redirect(url_for("home"))
 
 
-@app.route('/get_ingredients/<int:recipe_id>')
-def get_ingredients(recipe_id):
-    try:
-        # Assuming you have a Recipe model
-        recipe = Recipe.query.get(recipe_id)
-        if not recipe:
-            return "Recipe not found."
-
-        # Split the ingredients_ids (assuming it's a comma-separated string)
-        ingredient_ids = recipe.ingredients_ids.split(',')
-
-        # Query Ingredients based on ingredient IDs
-        ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_ids)).all()
-
-        # Extract ingredient names
-        ingredient_names = [ingredient.ingredient_name for ingredient in ingredients]
-
-        return ', '.join(ingredient_names)  # Comma-separated list of ingredient names
-    except Exception as e:
-        return str(e)

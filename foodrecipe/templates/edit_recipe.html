@@ -57,9 +57,9 @@
       <div class="input-field col s12">
           <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
           <select multiple id="ingredients_id" name="ingredients_id" class="validate" required>
-              <option value="" disabled selected>Choose Ingredient</option>
+              <option value="" disabled>Choose Ingredient</option>
               {% for ingredients in allingredients %}
-                  {% if ingredients==recipeingredients %}
+                  {% if ingredients in full_ingredients %}
                       <option value="{{ ingredients.id }}" selected>{{ ingredients.ingredient_name }}</option>
                   {% else %}
                       <option value="{{ ingredients.id }}">{{ ingredients.ingredient_name }}</option>
