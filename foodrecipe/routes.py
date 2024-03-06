@@ -1,4 +1,4 @@
-from flask import render_template, request, url_for, redirect
+from flask import render_template, request, url_for, redirect, session
 from foodrecipe import app, db
 from foodrecipe.models import Category, Recipe, Ingredients, Ingredient_index
 
@@ -6,10 +6,34 @@ from foodrecipe.models import Category, Recipe, Ingredients, Ingredient_index
 @app.route("/")
 def home():
     recipes = list(Recipe.query.order_by(Recipe.id).all())
-    ingredients = Ingredient_index.query.filter_by(recipe_id=Recipe.id).all()
+    selected_recipe, full_ingredients = get_recipe_data()
+    #selected_recipe = session.get("selected_recipe")
+    #print('sel',session.get("selected_recipe"))
+    #full_ingredients = session.get("full_ingredients")
+    #print('full ing',session.get("full_ingredients"))
+    # ingredients = Ingredient_index.query.filter_by(recipe_id=Recipe.id).all()
+    # ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
+    # full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
+    return render_template("recipe.html", recipes=recipes, selected_recipe=selected_recipe, full_ingredients=full_ingredients)
+
+def get_recipe_data(recipe_id):
+    # Your existing logic to fetch recipe data
+    selected_recipe = Recipe.query.get_or_404(recipe_id)
+    ingredients = Ingredient_index.query.filter_by(recipe_id=recipe_id).all()
     ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
     full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
-    return render_template("recipe.html", recipes=recipes, full_ingredients=full_ingredients)
+    return selected_recipe, full_ingredients
+# @app.route("/recipe/<int:recipe_id>", methods=["GET"])
+# def recipe(recipe_id):
+#     selected_recipe = Recipe.query.get_or_404(recipe_id)
+#     print('select rece',Recipe.query.get_or_404(recipe_id))
+#     ingredients = Ingredient_index.query.filter_by(recipe_id=recipe_id).all()
+#     ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
+#     full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
+#     print('full ing',Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all())
+#     session["selected_recipe"] = selected_recipe
+#     session["full_ingredients"] = full_ingredients
+#     return render_template("recipe.html", selected_recipe=selected_recipe, full_ingredients=full_ingredients)
 
 
 @app.route("/categories")

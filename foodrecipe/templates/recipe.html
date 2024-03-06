@@ -22,7 +22,20 @@
             <strong>Description</strong>
             <p>{{ recipe.recipe_description }}</p>
             <strong>Ingredients</strong>
-            <p>{{ full_ingredients }}</p>
+            <!-- <ul>  
+                {% for ingredients in full_ingredients %}
+                <li>
+                    {{ ingredients }}
+                </li>
+                {% endfor %}
+            </ul> -->
+            <ul>
+                {% for ingredient in full_ingredients %}
+                    {% if ingredient.recipe_id == selected_recipe.id %}
+                        <li>{{ ingredient }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
             <strong>How to Prepare</strong>
             <p>{{ recipe.prep_method }}</p>
             <p>
