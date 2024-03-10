@@ -6,34 +6,14 @@ from foodrecipe.models import Category, Recipe, Ingredients, Ingredient_index
 @app.route("/")
 def home():
     recipes = list(Recipe.query.order_by(Recipe.id).all())
-    selected_recipe, full_ingredients = get_recipe_data()
-    #selected_recipe = session.get("selected_recipe")
-    #print('sel',session.get("selected_recipe"))
-    #full_ingredients = session.get("full_ingredients")
-    #print('full ing',session.get("full_ingredients"))
-    # ingredients = Ingredient_index.query.filter_by(recipe_id=Recipe.id).all()
-    # ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
-    # full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
-    return render_template("recipe.html", recipes=recipes, selected_recipe=selected_recipe, full_ingredients=full_ingredients)
-
-def get_recipe_data(recipe_id):
-    # Your existing logic to fetch recipe data
-    selected_recipe = Recipe.query.get_or_404(recipe_id)
-    ingredients = Ingredient_index.query.filter_by(recipe_id=recipe_id).all()
+    ingredients = Ingredient_index.query.filter_by(recipe_id=Recipe.id).all()
     ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
     full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
-    return selected_recipe, full_ingredients
-# @app.route("/recipe/<int:recipe_id>", methods=["GET"])
-# def recipe(recipe_id):
-#     selected_recipe = Recipe.query.get_or_404(recipe_id)
-#     print('select rece',Recipe.query.get_or_404(recipe_id))
-#     ingredients = Ingredient_index.query.filter_by(recipe_id=recipe_id).all()
-#     ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
-#     full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
-#     print('full ing',Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all())
-#     session["selected_recipe"] = selected_recipe
-#     session["full_ingredients"] = full_ingredients
-#     return render_template("recipe.html", selected_recipe=selected_recipe, full_ingredients=full_ingredients)
+    if recipes is None or full_ingredients is None:
+        # Handle the case when any of these values are None
+        # For example, return an error page or redirect to an appropriate route
+        return "Error: Data not available"
+    return render_template("recipe.html", recipes=recipes, full_ingredients=full_ingredients)
 
 
 @app.route("/categories")
@@ -118,7 +98,6 @@ def add_recipe():
         db.session.add(recipes)
         db.session.commit()
         ingredients_id=request.form.getlist("ingredients_id")
-        #print('The list ',request.form.getlist("ingredients_id"))
         for ingredient_id in ingredients_id:
             index_entry = Ingredient_index(
             recipe_id=recipes.id,

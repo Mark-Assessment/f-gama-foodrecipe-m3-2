@@ -1,110 +1,199 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Foodrecipe
+## Code institute Milestone Project3
 
-Welcome fatimagama20,
+[Click here to launch a game](https://fatimagama20.github.io/Mathgameproject2/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Organize your Food Recipe (Website), and Categories help you organize and define your recipes. Course, Cuisine, Main Ingredient, can be customized to whatever you'd like! Add, edit, or remove any of the options in these categories and then add them to your recipes to organize your recipe.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![](?raw=true)
 
-## Gitpod Reminders
+# About Foodrecipe
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+A recipe is a set of instructions that describes how to prepare or make something, especially a dish of prepared food.
 
-`python3 -m http.server`
+##  Foodrecipe goals
 
-A blue button should appear to click: _Make Public_,
+This food recipe app allows users to sift through tons of recipes, and check cooking intructions. It also lets users know the main ingredients, and the type of meal, which the user wants to make.
 
-Another blue button should appear to click: _Open Browser_.
+# User Experience (UX)
+* ## User stories
+  * ### First time visitors goal
+    * As a first time visitor, I want to easily understand the main purpose of the game and learn more about the feature of the game 
+    * As a first time visitor, I want to look for help page to understand how to play a game
+    * Everytime a correct answer is clicked score is incremented by 1
+    * User can reset a game at any point and a timer is be reset to zero
+    * User can play the game until 30 seconds
+    * As a parent, can insist a child to play the game and improve the multiplication skills.
+    * user can see the time remaining until the game is over
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+  * ### Frequent User Goals
+    * As a frequent User, I want to see if more questions are added
+    * As a Frequent User, I want to see if the developer can be contacted
 
-A blue button should appear to click: _Make Public_,
+* ## Design
+  * ### Colour Scheme
+    
+    I have chosen to use the dark green as the main colour, alongside grey and black, as well as using the accent colours red and light green.   
+Green is universally associated with nature, and references the organic properties of houseplants.   
+A subtle light grey makes the layout background sit further back visually behind the houseplant ‘cards’, creating a subtle 3d effect.  
+Red is used as a warning colour on buttons used for deletion. Green accent is used for the card reveal backgrounds to easily differentiate the card back, from the card front, and also as the button colour for users to view only their own houseplant entries.
+- #1b5e20 dark green
+- #b9f6ca green accent
+- #ff1744 red accent
+- #f8f8f8 light grey
+- #222222 black
+  
+    * Background colour - #9dd2ea, #f1ff92
+    * score colour - #888e5f
+    * Time remaining colour - rgba(27, 235, 138, 0.78)
+    * questions colour - #4c9bf5
 
-Another blue button should appear to click: _Open Browser_.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+  * ### Typography
+    * Default fonts is used throughtout the website. I haven't use google fonts
+  * ### Imagery
+    * On the Homepage, I have used a professionally presented image to suit the purpose of the website, which is providing a good impression for parents to visit the website.
+  
+* ## Wireframes
+  * ### Page Load Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/hompage.jpg)
+  * ### Start Game Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/aboutpage.jpg)
+  * ### Contact Page Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/contactform.jpg)
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+# Features
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+* Responsive on all device sizes
+* Interactive elements
 
-------
+# Technologies Used
 
-## Release History
+## Languages Used
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+  * [HTML5](https://en.wikipedia.org/wiki/HTML5)
+  * [CSS3](https://en.wikipedia.org/wiki/CSS)
 
-**September 20 2023:** Update Python version to 3.9.17.
+  ##  Frameworks, Libraries & Programs Used
+  1. [Bootstrap5:](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+     * Bootstrap was used to assist with the responsiveness and styling of the website.
+  2. [Font Awesome:](https://fontawesome.com/)
+     *  Font Awesome is used to add help icon
+  3. [Hover:css:](https://ianlunn.github.io/Hover/)
+     * Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
+  4. [jQuery:](https://jquery.com/)
+     * jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
+  5. [Git:](https://git-scm.com/)
+     * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+  6. [GitHub:](https://github.com/)
+     * GitHub is used to store the projects code after being pushed from Git.
+  7. [Balsamiq:](https://balsamiq.com/)
+     * Balsamiq was used to create the [wireframes]() during the design process.
+  8. [Am I reponsive:](https://ui.dev/amiresponsive)
+     * Am I reponsive was used to create a mockup to add in a README.md file
+# Testing
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+  * [W3C Markup Validator]() - [Results](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/w3cmarkupvalidatorresult.jpg)
+  * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/cssresult.jpg)
+# Testing User Stories from User Experience (UX) Section
+ * First Time Visitor Goals
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+    1. As a First Time Visitor, I want to easily understand the main purpose of the food recipe app and learn more about the recipes.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+       * Guide users by providing detailed instructions for preparing various dishes
+       
+       * Offering comprehensive information on ingredients.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+       *  Provide step-by-step cooking procedures
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+    2. As a First Time Visitor, I want to be able to easily be able to add, edit, and delete ingredients.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+        * At the top of each page there is a clean navigation bar, each link describes what the page they will end up at clearly.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+    3. As a First Time Visitor, I want to able to add,edit, and delete categories
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+ *  Frequent User Goals
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+    1. As a Frequent User, to be able to check to see if there are any newly added reviews about the recipe.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+    2. As a Frequent User, to be able to search a recipe.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+       * The user would already be comfortable with the website layout and can easily search the recipes.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+   2. As a Frequent User, to be able to add recipe by different people.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+# Further Testing
+* The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
+* The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
+* A large amount of testing was done to ensure that all pages were linking correctly.
+* Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
+# Known Bugs
+* Hover effects don't work on the navigation bar
+  * I tried fixing hover effects on a nav bar but somehow Bootstrap is overriding the CSS. Since there is not much impact on the UX and there are clear redirection provided I left it unfixed
+ 
+# Deployment
+GitHub Pages
+The project was deployed to GitHub Pages using the following steps...
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/fatimagama20/TutorMilestoneProject1)
+2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
+   * Alternatively Click Here for a GIF demonstrating the process starting from Step 2.
+3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
+4. Under "Source", click the dropdown called "None" and select "Master Branch".
+5. The page will automatically refresh.
+6. Scroll back down through the page to locate the now published site link in the "GitHub Pages" section.
+# Forking the GitHub Repository
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
 
-------
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/fatimagama20/TutorMilestoneProject1)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+# Making a Local Clone
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/fatimagama20/TutorMilestoneProject1)
+2. Under the repository name, click "Clone or download".
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type git clone, and then paste the URL you copied in Step 3.
 
-## FAQ about the uptime script
+   $ git clone https://github.com/fatimagama20/TutorMilestoneProject1
+7. Press Enter. Your local clone will be created.
 
-**Why have you added this script?**
+   $ git clone https://github.com/fatimagama20/TutorMilestoneProject1
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+> Cloning into `CI-Clone`...
+> remote: Counting objects: 10, done.
+> remote: Compressing objects: 100% (8/8), done.
+> remove: Total 10 (delta 1), reused 10 (delta 1)
+> Unpacking objects: 100% (10/10), done.
+Click Here to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
-**How will this affect me?**
+# Credits
+## Code
+* [Bootstrap 5.0:](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Bootstrap was used significantly throughout the project to make it responsive. I used the Grid system as well as inputting a fixed-top navbar, a progress bar and contact form.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+* [Stack Overflow](https://stackoverflow.com/) was used to help me style the navbar text colour and was used in HTML to close the navbar when a link is clicked on mobile.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+* [W3Schools](https://www.w3schools.com/) was used to provide a smooth scroll to the website and to style the contact form and the submit button.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+* [Courses.Code Institute](https://learn.codeinstitute.net/ci_program/level5diplomainwebappdevelopment) was used to style the progress bars and I used the demonstrated jQuery for the contact form.
 
-**So….?**
+## Content
+* [Google :](https://www.google.co.uk/) Some content was searched from google
+* Some content by the developer.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+## Media
+* [Google:](https://www.google.co.uk/) Some Images were downloaded from google.
+* [Unsplash:](https://unsplash.com/) Some image are taken from Unsplash
 
-**Can I opt out?**
+## Acknowledgements
+* My Mentor for continuous helpful feedback.
+* Tutor support at Code Institute for their support.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
 
----
 
-Happy coding!
+
+
+ 

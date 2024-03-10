@@ -22,18 +22,9 @@
             <strong>Description</strong>
             <p>{{ recipe.recipe_description }}</p>
             <strong>Ingredients</strong>
-            <!-- <ul>  
-                {% for ingredients in full_ingredients %}
-                <li>
-                    {{ ingredients }}
-                </li>
-                {% endfor %}
-            </ul> -->
             <ul>
                 {% for ingredient in full_ingredients %}
-                    {% if ingredient.recipe_id == selected_recipe.id %}
-                        <li>{{ ingredient }}</li>
-                    {% endif %}
+                    <li>{{ ingredient }} </li>
                 {% endfor %}
             </ul>
             <strong>How to Prepare</strong>
@@ -51,7 +42,7 @@
                    <a href="{{ url_for('delete_recipe', recipe_id=recipe.id) }}" class="btn red">Delete</a>
                    <a href="#" class="btn green modal-close">Cancel</a>
                 </div>
-              </div>
+            </div>
         </div>
     </li>
     {% endfor %}
