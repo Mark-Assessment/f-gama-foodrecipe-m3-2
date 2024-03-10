@@ -33,31 +33,27 @@ This food recipe app allows users to sift through tons of recipes, and check coo
 * ## Design
   * ### Colour Scheme
     
-    I have chosen to use the dark green as the main colour, alongside grey and black, as well as using the accent colours red and light green.   
-Green is universally associated with nature, and references the organic properties of houseplants.   
-A subtle light grey makes the layout background sit further back visually behind the houseplant ‘cards’, creating a subtle 3d effect.  
-Red is used as a warning colour on buttons used for deletion. Green accent is used for the card reveal backgrounds to easily differentiate the card back, from the card front, and also as the button colour for users to view only their own houseplant entries.
-- #1b5e20 dark green
-- #b9f6ca green accent
-- #ff1744 red accent
-- #f8f8f8 light grey
-- #222222 black
+    I have chosen to use the blue and white as the main colour, alongside grey and black, as well as using the accent colours red and light green.   
+    Red is used as a warning colour on buttons used for deletion. Green accent is used for the edit button to easily differentiate the buttons.
   
-    * Background colour - #9dd2ea, #f1ff92
-    * score colour - #888e5f
-    * Time remaining colour - rgba(27, 235, 138, 0.78)
-    * questions colour - #4c9bf5
+    * Card colour - #03a9f4
+    * Delete button - #888e5f
+    * Edit button - #F44336
+    * Text colour - #fff
 
 
   * ### Typography
+
     * Default fonts is used throughtout the website. I haven't use google fonts
+
   * ### Imagery
-    * On the Homepage, I have used a professionally presented image to suit the purpose of the website, which is providing a good impression for parents to visit the website.
+    * On the Homepage, I have used a professionally presented food image to suit the purpose of the website, which is providing a good impression for the visitors.
   
 * ## Wireframes
-  * ### Page Load Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/hompage.jpg)
-  * ### Start Game Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/aboutpage.jpg)
-  * ### Contact Page Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/contactform.jpg)
+  * ### Home page Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/hompage.jpg)
+  * ### New recipe Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/aboutpage.jpg)
+  * ### Ingredients Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/contactform.jpg)
+  * ### Categories Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/contactform.jpg)
 
 
 # Features
