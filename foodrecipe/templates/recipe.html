@@ -29,7 +29,12 @@
             </ul>
             <p></p>
             <strong>How to Prepare</strong>
-            <p>{{ recipe.prep_method }}</p>
+            <ul>
+                {% set prep_steps = recipe.prep_method.split('\n') %}
+                {% for step in prep_steps %}
+                    <li>{{ step }}</li>
+                {% endfor %}
+            </ul>             
             <p>
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe.id) }}" class="btn green accent-4">Edit</a>
                 <a href="#modal-{{ recipe.id }}" class="btn red modal-trigger">Delete</a>
