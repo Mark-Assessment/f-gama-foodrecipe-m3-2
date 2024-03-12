@@ -23,10 +23,11 @@
             <p>{{ recipe.recipe_description }}</p>
             <strong>Ingredients</strong>
             <ul>
-                {% for ingredient in full_ingredients %}
-                    <li>{{ ingredient }} </li>
+                {% for ingredient in recipe_ingredients[recipe.id] %}
+                    <li>{{ ingredient.ingredient_name }}</li>
                 {% endfor %}
             </ul>
+            <p></p>
             <strong>How to Prepare</strong>
             <p>{{ recipe.prep_method }}</p>
             <p>

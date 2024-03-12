@@ -1,19 +1,24 @@
-from flask import render_template, request, url_for, redirect, session
+from flask import render_template, request, url_for, redirect
 from foodrecipe import app, db
 from foodrecipe.models import Category, Recipe, Ingredients, Ingredient_index
 
 
 @app.route("/")
 def home():
+    # Fetch all recipes
     recipes = list(Recipe.query.order_by(Recipe.id).all())
-    ingredients = Ingredient_index.query.filter_by(recipe_id=Recipe.id).all()
-    ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
-    full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
-    if recipes is None or full_ingredients is None:
-        # Handle the case when any of these values are None
-        # For example, return an error page or redirect to an appropriate route
-        return "Error: Data not available"
-    return render_template("recipe.html", recipes=recipes, full_ingredients=full_ingredients)
+    # Initialize an empty dictionary to store ingredients for each recipe
+    recipe_ingredients = {}
+    # Iterate through recipes
+    for recipe in recipes:
+        # Fetch ingredients for the current recipe
+        ingredients = Ingredient_index.query.filter_by(recipe_id=recipe.id).all()
+        ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
+        # Retrieve full ingredient details
+        full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
+        # Store the ingredients for this recipe
+        recipe_ingredients[recipe.id] = full_ingredients
+    return render_template("recipe.html", recipes=recipes, recipe_ingredients=recipe_ingredients)
 
 
 @app.route("/categories")
@@ -115,9 +120,7 @@ def edit_recipe(recipe_id):
     allingredients = list(Ingredients.query.order_by(Ingredients.ingredient_name).all())
     ingredients = Ingredient_index.query.filter_by(recipe_id=recipe.id).all()
     ingredient_names = [ingredient.ingredient_id for ingredient in ingredients]
-    print('ids', [ingredient.ingredient_id for ingredient in ingredients])
     full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
-    print('names', Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all())
     if request.method == "POST":
         recipe.recipe_name = request.form.get("recipe_name"),
         recipe.recipe_description=request.form.get("recipe_description"),

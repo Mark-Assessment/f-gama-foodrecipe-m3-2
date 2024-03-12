@@ -55,11 +55,30 @@ This food recipe app allows users to sift through tons of recipes, and check coo
   * ### Ingredients Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/contactform.jpg)
   * ### Categories Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/contactform.jpg)
 
+# Database Schema
+
+- I have represented the data within an entity relationship diagram.
+- ![Entity Relationship Diagram](screenshots/erd_final.png)
+- I have structured a database using [PostgreSQL](https://www.postgresql.org/), a object-relational database to support the Foodrecipe app.  
+Based on this information, I then created a database structure called foodrecipe db, within which I created 4 tables: category, ingredients, recipe and ingredient_index.
+- ![Houseplantr Mongo DB database](screenshots/dbhouseplantr.png)
+The 'category' stores the specific fields of information about the categories to which the recipe belongs for e.g. Lunch, dinner, chicken, beef, etc.
+- ![foodrecipe category](screenshots/dbhouseplant-records.png)
+The 'ingredients' stores the specific fields of information about the ingredients which is used to create a recipe for example, chicken, flour, pepper etc.   
+The 'recipe' stores the actual recipe with all the other information for e.g. how the recipe is prepared, what ingredients are used and which category it belongs to
+- ![Categories collection](screenshots/dbcategories.png).  
+The 'ingredient_index' stores the relation between the recipe and the ingredients of all the recipes for e.g. Chicken recipe and the ingredients of the chicken recipe
+- ![Users collection](screenshots/dbregistered-users.png)
 
 # Features
 
 * Responsive on all device sizes
+
+![Responsive Mockup](screenshots/mockups.png). 
+
 * Interactive elements
+
+## Navigation:
 
 # Technologies Used
 
