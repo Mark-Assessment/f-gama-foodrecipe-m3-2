@@ -8,3 +8,6 @@ body {
     flex: 1 0 auto;
   }
       
+  .imgresize{
+    width: 30%
+  }

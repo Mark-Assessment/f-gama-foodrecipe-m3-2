@@ -80,6 +80,58 @@ The 'ingredient_index' stores the relation between the recipe and the ingredient
 
 ## Navigation:
 
+I created a menu to help enable the user to navigate the app. The menu is responsive and changes to a user-friendly side panel with dropdown functionality on mobile. Users have access via the menu to an additional category, ingredient pages featuring a dashboard to add, delete and edit.
+### Home page desktop
+![Home page desktop](screenshots/nav-logged-out-view-mobile.png)
+### Home page mobile
+![Home page mobile](screenshots/nav-logged-out-view-desktop.png)
+### Category desktop
+![Category desktop](screenshots/nav-logged-in-user-mobile-view.png)
+### Category mobile
+![Category mobile](screenshots/nav-logged-in-user-desktop-view.png)
+### Ingredient desktop
+![Ingredient desktop](screenshots/nav-logged-in-admin-mobile-view.png)
+### Ingredient mobile
+![Ingredient mobile](screenshots/nav-logged-in-admin-desktop-view.png)
+
+# UX features:
+## Modal
+- I have added a modal on delete functionality to make user aware of delete action. 
+
+# CRUD 
+I have incorporated features to enable Create, Read, Update & Delete functionallity within the Foodrecipe App 
+## Add a recipe record
+- I created a page called add_recipe.html and added the function in the routes.py file called add_recipe which uses the "GET" and "POST". The GET method is to used to request data , The POST method is used to send the data to the server. I then created and styled input text fields to enable users to input text and also an input field for users to add the recipe details. I used a dropdown list for category and ingredient selection. Specific minimum and maximum entry lengths were applied to each text field.
+## Add recipe user interface:
+![add_recipe user interface](screenshots/add-houseplant_layout.png)
+## Input fields features:
+![category drop-down list](screenshots/drop-down-list.png)
+![ingredient drop-down list](screenshots/calendar.png)
+## add_recipe function:
+![add_recipe function](screenshots/add-houseplant-function.png)
+## add_category function:
+I created a categories page to manage categories with blue button to add categories at the top of the page under the title. On click of "Add category" button it redirects to "Add category" page with the help of an add_category.html template. I then created a function to add categories.  
+![add_category function](screenshots/admin-only.png)
+## add_ingredients function:
+I created a ingredients page to manage ingredients with blue button to add ingredients at the top of the page under the title. On click of "Add ingredient" button it redirects to "Add ingredient" page with the help of an add_ingredients.html template. I then created a function to add ingredients.  
+![add_ingredients function](screenshots/admin-only.png)
+## Update a recipe:
+I created edit_recipe.html to edit a recipe record. I fetch a recipe details based on the recipe id from the database. Once found, then the recipe record is updated with edit recipe button. After that's been updated in the database, I redirect to the home page where the list of recipes are displayed
+![Updating a recipe record](screenshots/edit_houseplant-function.png)
+## Update categories
+I created an edit_category.html template and interface and a function to edit categories. The functionality was created in the same way as the create recipe record.  
+## Delete a record:
+The user can delete a houseplant by clicking the red delete button at the foot of the houseplant record. To do this I created a function as follows: The @app.route decorator is '/delete_houseplant', which takes the 'houseplant_id' as a variable. I then selected the specific houseplant by the ObjectId that matched the 'houseplant_id' variable. As soon as the record is removed I provide the user with a flash() message "Houseplant successfully deleted".  
+![delete_houseplant function](screenshots/delete_houseplant-function.png). 
+[Delete houseplant record button]()
+## Delete a category:
+The user cand delete a record by clicking a delete button for the specific category within the categoires dashboard. To do this, I created a function to delete categories. The functionality was created in the same way as the delete houseplant record, except this was limited to admin use only by using an if statement within the function.  
+![delete_category function](screenshots/delete_category-function.png)
+# User authentication
+- I used Flask together with Werkzeug for security features, specifically "generate_password_hash" and "check_password_hash" for user password security. For additional security, Werkzeug's security features then salted the string with random data to make a password which would be hard to crack. I created a Login template and Registration template each containing a form with relevant input fields and button built using the responsive CSS framework Materialize. I added a link on each page template incase new users were on the Login page or existing users on the Registration page, to enable user to go to the page they required quickly. 
+![Login Page](screenshots/loginscreenshot.png) 
+![Registraion page](screenshots/regscreenshot.png)
+
 # Technologies Used
 
 ## Languages Used
