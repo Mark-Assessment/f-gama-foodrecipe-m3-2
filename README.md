@@ -120,17 +120,16 @@ I created edit_recipe.html to edit a recipe record. I fetch a recipe details bas
 ![Updating a recipe record](screenshots/edit_houseplant-function.png)
 ## Update categories
 I created an edit_category.html template and interface and a function to edit categories. The functionality was created in the same way as the create recipe record.  
-## Delete a record:
-The user can delete a houseplant by clicking the red delete button at the foot of the houseplant record. To do this I created a function as follows: The @app.route decorator is '/delete_houseplant', which takes the 'houseplant_id' as a variable. I then selected the specific houseplant by the ObjectId that matched the 'houseplant_id' variable. As soon as the record is removed I provide the user with a flash() message "Houseplant successfully deleted".  
-![delete_houseplant function](screenshots/delete_houseplant-function.png). 
-[Delete houseplant record button]()
+## Delete a recipe:
+The user can delete a recipe by clicking the red delete button at the foot of the recipe record. To do this I created a function as follows: The @app.route decorator is '/delete_recipe', which takes the 'recipe_id' as a variable. I then selected the specific recipe by the ObjectId that matched the 'recipe_id' variable. As soon as the record is removed I redirect the user to home page where the list of recipes are shown.  
+![delete_recipe function](screenshots/delete_houseplant-function.png). 
+[Delete recipe record button]()
 ## Delete a category:
-The user cand delete a record by clicking a delete button for the specific category within the categoires dashboard. To do this, I created a function to delete categories. The functionality was created in the same way as the delete houseplant record, except this was limited to admin use only by using an if statement within the function.  
+The user can delete a record by clicking a delete button for the specific category within the categoires dashboard. To do this, I created a function to delete categories. The functionality was created in the same way as the delete recipe record
 ![delete_category function](screenshots/delete_category-function.png)
-# User authentication
-- I used Flask together with Werkzeug for security features, specifically "generate_password_hash" and "check_password_hash" for user password security. For additional security, Werkzeug's security features then salted the string with random data to make a password which would be hard to crack. I created a Login template and Registration template each containing a form with relevant input fields and button built using the responsive CSS framework Materialize. I added a link on each page template incase new users were on the Login page or existing users on the Registration page, to enable user to go to the page they required quickly. 
-![Login Page](screenshots/loginscreenshot.png) 
-![Registraion page](screenshots/regscreenshot.png)
+## Delete a ingredient:
+The user can delete a record by clicking a delete button for the specific ingredient within the ingredients dashboard. To do this, I created a function to delete ingredients. The functionality was created in the same way as the delete recipe record
+![delete_ingredient function](screenshots/delete_category-function.png)
 
 # Technologies Used
 
@@ -138,16 +137,18 @@ The user cand delete a record by clicking a delete button for the specific categ
 
   * [HTML5](https://en.wikipedia.org/wiki/HTML5)
   * [CSS3](https://en.wikipedia.org/wiki/CSS)
+  * [JS](https://en.wikipedia.org/wiki/JavaScript)
+  * [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
   ##  Frameworks, Libraries & Programs Used
-  1. [Bootstrap5:](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
-     * Bootstrap was used to assist with the responsiveness and styling of the website.
+  1. [Materialize 1.0.0:](https://materializecss.com/)
+     * Materialize is a modern responsive CSS framework based on Material Design by Google. Materialize was used to assist with the responsiveness and styling of the website; especially useful in this project  are the features for creating forms.
   2. [Font Awesome:](https://fontawesome.com/)
      *  Font Awesome is used to add help icon
-  3. [Hover:css:](https://ianlunn.github.io/Hover/)
-     * Hover.css was used on the Social Media icons in the footer to add the float transition while being hovered over.
-  4. [jQuery:](https://jquery.com/)
-     * jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
+  3. [Heroku:]
+     * The project was deployed to Heroku. Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+  4. [PostgreSQL:](https://www.postgresql.org/)
+     * PostgreSQL was used to store the data required for the project. It is a object-relational database used for data storage.
   5. [Git:](https://git-scm.com/)
      * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
   6. [GitHub:](https://github.com/)
