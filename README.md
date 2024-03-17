@@ -1,7 +1,7 @@
 # Foodrecipe
 ## Code institute Milestone Project3
 
-[Click here to launch a game](https://fatimagama20.github.io/Mathgameproject2/)
+[Click here to launch a game](https://foodrecipe-798974a40ee6.herokuapp.com/)
 
 Organize your Food Recipe (Website), and Categories help you organize and define your recipes. Course, Cuisine, Main Ingredient, can be customized to whatever you'd like! Add, edit, or remove any of the options in these categories and then add them to your recipes to organize your recipe.
 
