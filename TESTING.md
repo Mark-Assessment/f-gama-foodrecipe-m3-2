@@ -91,7 +91,7 @@ I tested the app with the [W3C HTML checker](https://validator.w3.org/) and it i
 ![Vimeo aria label warning](screenshots/html-aria-label-warning.png)
 ### CSS validation
 I tested style.css file with the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) and no error was found.  
-![CSS validation](screenshots/w3-css-validation.png)
+![CSS validation](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/cssresult.png?raw=true)
 ### Javascript validation
 The script.js was tested by [Jshint online checker](https://jshint.com/) Two warnings were issued about the let variable keyword being available in ES6 version since 2015. 
 ![Javascript warning](screenshots/jshint-warning.png)

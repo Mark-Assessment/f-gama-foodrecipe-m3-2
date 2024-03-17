@@ -5,7 +5,7 @@
 
 Organize your Food Recipe (Website), and Categories help you organize and define your recipes. Course, Cuisine, Main Ingredient, can be customized to whatever you'd like! Add, edit, or remove any of the options in these categories and then add them to your recipes to organize your recipe.
 
-![](?raw=true)
+![](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/recipewebsite.png?raw=true)
 
 # About Foodrecipe
 
@@ -53,31 +53,32 @@ This food recipe app allows users to sift through tons of recipes, and check coo
     * On the Homepage, I have used a professionally presented food image to suit the purpose of the website, which is providing a good impression for the visitors.
   
 * ## Wireframes
-  * ### Home page Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/hompage.jpg)
-  * ### New recipe Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/aboutpage.jpg)
-  * ### Ingredients Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/contactform.jpg)
-  * ### Categories Wireframe - [View](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/contactform.jpg)
+  * ### Home page Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/wireframes/Home.png)
+  * ### New recipe Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/wireframes/Newrecipe.png)
+  * ### Ingredients Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/wireframes/Ingredients.png)
+  * ### Categories Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/wireframes/Categories.png)
 
 # Database Schema
 
 - I have represented the data within an entity relationship diagram.
-- ![Entity Relationship Diagram](screenshots/erd_final.png)
+![Entity Relationship Diagram](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/tablestructure.png?raw=true)
 - I have structured a database using [PostgreSQL](https://www.postgresql.org/), a object-relational database to support the Foodrecipe app.  
 Based on this information, I then created a database structure called foodrecipe db, within which I created 4 tables: category, ingredients, recipe and ingredient_index.
-- ![Houseplantr Mongo DB database](screenshots/dbhouseplantr.png)
-The 'category' stores the specific fields of information about the categories to which the recipe belongs for e.g. Lunch, dinner, chicken, beef, etc.
-- ![foodrecipe category](screenshots/dbhouseplant-records.png)
-The 'ingredients' stores the specific fields of information about the ingredients which is used to create a recipe for example, chicken, flour, pepper etc.   
-The 'recipe' stores the actual recipe with all the other information for e.g. how the recipe is prepared, what ingredients are used and which category it belongs to
-- ![Categories collection](screenshots/dbcategories.png).  
-The 'ingredient_index' stores the relation between the recipe and the ingredients of all the recipes for e.g. Chicken recipe and the ingredients of the chicken recipe
-- ![Users collection](screenshots/dbregistered-users.png)
+![Foodrecipe database](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/foodrecipedb.png?raw=true)
+- The 'category' stores the specific fields of information about the categories to which the recipe belongs for e.g. Lunch, dinner, chicken, beef, etc.
+![foodrecipe category](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/categorytable.png?raw=true)
+- The 'ingredients' stores the specific fields of information about the ingredients which is used to create a recipe for example, chicken, flour, pepper etc. 
+![Ingredients collection](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/ingredientstable.png?raw=true)  
+- The 'recipe' stores the actual recipe with all the other information for e.g. how the recipe is prepared, what ingredients are used and which category it belongs to
+![Recipe collection](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/recipetable.png?raw=true).  
+- The 'ingredient_index' stores the relation between the recipe and the ingredients of all the recipes for e.g. Chicken recipe and the ingredients of the chicken recipe
+![Ingredients index](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/ingredient_indextable.png?raw=true)
 
 # Features
 
 * Responsive on all device sizes
 
-![Responsive Mockup](screenshots/mockups.png). 
+![Responsive Mockup](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/recipewebsite.png?raw=true). 
 
 * Interactive elements
 
@@ -85,15 +86,15 @@ The 'ingredient_index' stores the relation between the recipe and the ingredient
 
 I created a menu to help enable the user to navigate the app. The menu is responsive and changes to a user-friendly side panel with dropdown functionality on mobile. Users have access via the menu to an additional category, ingredient pages featuring a dashboard to add, delete and edit.
 ### Home page desktop
-![Home page desktop](screenshots/nav-logged-out-view-mobile.png)
+![Home page desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Homepage.png?raw=true)
 ### Home page mobile
 ![Home page mobile](screenshots/nav-logged-out-view-desktop.png)
 ### Category desktop
-![Category desktop](screenshots/nav-logged-in-user-mobile-view.png)
+![Category desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Categorieslist.png?raw=true)
 ### Category mobile
 ![Category mobile](screenshots/nav-logged-in-user-desktop-view.png)
 ### Ingredient desktop
-![Ingredient desktop](screenshots/nav-logged-in-admin-mobile-view.png)
+![Ingredient desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/ingredientlist.png?raw=true)
 ### Ingredient mobile
 ![Ingredient mobile](screenshots/nav-logged-in-admin-desktop-view.png)
 
@@ -106,33 +107,36 @@ I have incorporated features to enable Create, Read, Update & Delete functionall
 ## Add a recipe record
 - I created a page called add_recipe.html and added the function in the routes.py file called add_recipe which uses the "GET" and "POST". The GET method is to used to request data , The POST method is used to send the data to the server. I then created and styled input text fields to enable users to input text and also an input field for users to add the recipe details. I used a dropdown list for category and ingredient selection. Specific minimum and maximum entry lengths were applied to each text field.
 ## Add recipe user interface:
-![add_recipe user interface](screenshots/add-houseplant_layout.png)
+![add_recipe user interface](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Nwerecipe.png?raw=true)
 ## Input fields features:
-![category drop-down list](screenshots/drop-down-list.png)
-![ingredient drop-down list](screenshots/calendar.png)
+![category drop-down list](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Categoryfield.png?raw=true)
+![ingredient drop-down list](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/ingredientfield.png?raw=true)
 ## add_recipe function:
-![add_recipe function](screenshots/add-houseplant-function.png)
+![add_recipe function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Addrecipefunction.png?raw=true)
 ## add_category function:
 I created a categories page to manage categories with blue button to add categories at the top of the page under the title. On click of "Add category" button it redirects to "Add category" page with the help of an add_category.html template. I then created a function to add categories.  
-![add_category function](screenshots/admin-only.png)
+![add_category function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Addcategoryfunction.png?raw=true)
 ## add_ingredients function:
 I created a ingredients page to manage ingredients with blue button to add ingredients at the top of the page under the title. On click of "Add ingredient" button it redirects to "Add ingredient" page with the help of an add_ingredients.html template. I then created a function to add ingredients.  
-![add_ingredients function](screenshots/admin-only.png)
+![add_ingredients function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/AddIngredientfunction.png?raw=true)
 ## Update a recipe:
 I created edit_recipe.html to edit a recipe record. I fetch a recipe details based on the recipe id from the database. Once found, then the recipe record is updated with edit recipe button. After that's been updated in the database, I redirect to the home page where the list of recipes are displayed
-![Updating a recipe record](screenshots/edit_houseplant-function.png)
+![Updating a recipe record](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Editrecipefunction.png?raw=true)
 ## Update categories
-I created an edit_category.html template and interface and a function to edit categories. The functionality was created in the same way as the create recipe record.  
+I created an edit_category.html template and interface and a function to edit categories. The functionality was created in the same way as the create recipe record.
+![Updating a cateory record](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Editcategoryfunction.png?raw=true)
+## Update ingredients
+I created an edit_ingredients.html template and interface and a function to edit ingredients. The functionality was created in the same way as the create recipe record.
+![Updating a ingredient record](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/EditIngredientfunction.png?raw=true)
 ## Delete a recipe:
 The user can delete a recipe by clicking the red delete button at the foot of the recipe record. To do this I created a function as follows: The @app.route decorator is '/delete_recipe', which takes the 'recipe_id' as a variable. I then selected the specific recipe by the ObjectId that matched the 'recipe_id' variable. As soon as the record is removed I redirect the user to home page where the list of recipes are shown.  
-![delete_recipe function](screenshots/delete_houseplant-function.png). 
-[Delete recipe record button]()
+![delete_recipe function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/deleterecipefunction.png?raw=true). 
 ## Delete a category:
 The user can delete a record by clicking a delete button for the specific category within the categoires dashboard. To do this, I created a function to delete categories. The functionality was created in the same way as the delete recipe record
-![delete_category function](screenshots/delete_category-function.png)
+![delete_category function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/deletecategoryfunction.png?raw=true)
 ## Delete a ingredient:
 The user can delete a record by clicking a delete button for the specific ingredient within the ingredients dashboard. To do this, I created a function to delete ingredients. The functionality was created in the same way as the delete recipe record
-![delete_ingredient function](screenshots/delete_category-function.png)
+![delete_ingredient function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/DeleteIngredientfunction.png?raw=true)
 
 # Technologies Used
 
