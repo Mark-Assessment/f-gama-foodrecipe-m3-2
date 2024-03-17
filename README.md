@@ -18,17 +18,20 @@ This food recipe app allows users to sift through tons of recipes, and check coo
 # User Experience (UX)
 * ## User stories
   * ### First time visitors goal
-    * As a first time visitor, I want to easily understand the main purpose of the game and learn more about the feature of the game 
-    * As a first time visitor, I want to look for help page to understand how to play a game
-    * Everytime a correct answer is clicked score is incremented by 1
-    * User can reset a game at any point and a timer is be reset to zero
-    * User can play the game until 30 seconds
-    * As a parent, can insist a child to play the game and improve the multiplication skills.
-    * user can see the time remaining until the game is over
+    * As a first time visitor, I want to easily understand the main purpose of the app and learn more about the feature of the app 
+    * As a first time visitor, I want to look for different recipes and then add the recipes along with ingredients and categories.
+    * Look to edit a recipe, ingredients and categories
+    * User can delete recipe, category and ingredient at any time
+    * Guide users by providing detailed instructions for preparing various dishes       
+    * Offering comprehensive information on ingredients.
+    * Provide step-by-step cooking procedures
 
   * ### Frequent User Goals
-    * As a frequent User, I want to see if more questions are added
-    * As a Frequent User, I want to see if the developer can be contacted
+    * As a frequent User, I want to see if the preparation time
+    * As a Frequent User, I want to see calories
+    * As a Frequent User, I want to see who added the recipe
+    * As a Frequent User, I want to see the reviews
+    
 
 * ## Design
   * ### Colour Scheme
@@ -161,42 +164,6 @@ The user can delete a record by clicking a delete button for the specific ingred
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
   * [W3C Markup Validator]() - [Results](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/w3cmarkupvalidatorresult.jpg)
   * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/cssresult.jpg)
-# Testing User Stories from User Experience (UX) Section
- * First Time Visitor Goals
-
-    1. As a First Time Visitor, I want to easily understand the main purpose of the food recipe app and learn more about the recipes.
-
-       * Guide users by providing detailed instructions for preparing various dishes
-       
-       * Offering comprehensive information on ingredients.
-
-       *  Provide step-by-step cooking procedures
-
-    2. As a First Time Visitor, I want to be able to easily be able to add, edit, and delete ingredients.
-
-        * At the top of each page there is a clean navigation bar, each link describes what the page they will end up at clearly.
-
-    3. As a First Time Visitor, I want to able to add,edit, and delete categories
-
-
- *  Frequent User Goals
-
-    1. As a Frequent User, to be able to check to see if there are any newly added reviews about the recipe.
-
-    2. As a Frequent User, to be able to search a recipe.
-
-       * The user would already be comfortable with the website layout and can easily search the recipes.
-
-   2. As a Frequent User, to be able to add recipe by different people.
-
-# Further Testing
-* The Website was tested on Google Chrome, Internet Explorer, Microsoft Edge and Safari browsers.
-* The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX.
-* A large amount of testing was done to ensure that all pages were linking correctly.
-* Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
-# Known Bugs
-* Hover effects don't work on the navigation bar
-  * I tried fixing hover effects on a nav bar but somehow Bootstrap is overriding the CSS. Since there is not much impact on the UX and there are clear redirection provided I left it unfixed
  
 # Deployment
 GitHub Pages
@@ -234,6 +201,155 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 > remove: Total 10 (delta 1), reused 10 (delta 1)
 > Unpacking objects: 100% (10/10), done.
 Click Here to retrieve pictures for some of the buttons and more detailed explanations of the above process.
+
+# Deployment 
+## Setting up a GitHub caccount
+- I set up a [GitHub account](https://github.com/)
+- Used the Chrome browser
+- Created the Project GitHub repository
+- Clicked the green GitPod button in the top right hand cornner of the repository to create a new [workspace](https://gitpod.io/workspaces) to enable me to work locally'
+## Set up the database with PostgreSQL
+I Create an account with ElephantSQL 
+- Navigate to ElephantSQL.com and click “Log in”:
+- Select “Sign in with GitHub”.
+- Authorise ElephantSQL with your selected GitHub account.
+- In the Create new team form:
+    - Add a team name (your own name is fine)
+    - Read and agree to the Terms of Service
+    - Select Yes for GDPR
+    - Provide your email address
+    - Click “Create Team”
+- Create a database.
+    - Click “Create New Instance”
+    - Set up your plan
+       - 
+- whitelisted IP address and selected allow Access From Anywhere.
+- Once the cluster was fully provisioned, I created a new database called houseplantr_db to store the data that will be used with the app.
+### Set up collections and add category document:
+- I created three collections within the database: Categories, Houseplants and Users.
+- In the Categories collection, I inserted a document and created a key value pair: category_name:Flowering. (At this stage only one houseplant category was needed just to get the app set up. The rest of the categories were added later).
+### Add houseplant document to a collection:
+- In the houseplants collection I set up a document. The first key was category_name:“Flowering” as before. Then add additional fields were added: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. 
+- The relevant houseplant data was added as key value pairs as in the screenshot below. Again, only one houseplant document was needed just to get the app set up, and new documents would be created within the app.  
+![Key Value Pairs within a document](screenshots/example-key-value-pairs.png)
+
+### Create the Flask Application
+To create the Flask application I did the following:
+- Created a new repository in [GitHub](https://github.com/RachelFurlong-dev/milestone-project3-v1)
+- in the Terminal typed; 'pip3 install Flask' so that Flask functionality was ready to be imported.
+- created the app.py file which would run the application.
+- created an env.py in which to store sensitive data.
+- created a gitignore file which was set up to ignore env.py as well as the the '__pycache__/' directory.so that data that must be kept secure such as secret keys would not be saved to GitHub.
+- imported os to set up default environment variables in the env.py file, as in the screenshot below:  
+![Environment Variables](screenshots/environment-variables.png)
+- in app.py import Flask 
+- imported the env package so Heroku would be able to find the environment variables as they would not be pushed to GitHub.
+- created an instance of Flask, stored in a variable called 'app'.
+- told the app how and where to run the application as in the screenshot below:  
+![Run application](screenshots/app-run.png)
+- the final parameter was set to debug=True, during development, so I could see any actual errors that may appear, instead of a generic server warning. I changed this back to debug=False prior to final deployment.
+- set up a test function to check the app was working correctly in advance of connecting the app to MongoDB.
+
+### Deploy application to Heroku:
+To deploy the application to the cloud platform [Heroku](https://www.heroku.com/) I did the following:
+- created a requirements.txt file where the dependencies required to run the app would be stored.
+- created a Procfile where Heroku could get the information needed to run the app.
+- created a new app called Houseplantr-v1 in Heroku.
+- connected to GitHub within the app using the GitHub connect option.
+- selected settings>reveal config vars, added in the variables from the env.py file – left the MONGO_URI field contents empty to be completed later on in the development process.
+![Heroku Config Vars](screenshots/heroku-config-vars.png)
+- pushed the two new files (requirements.txt and Procfile) to the repository.
+- selected Deploy Tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enabled Heroku to receive the code from GitHub and build the app using the required packages to deploy the [live site](https://houseplantr-v1.herokuapp.com/).
+
+
+### Connect Flask to MongoDB:
+To connect Flask to [MongoDB](https://www.mongodb.com/) I did the following:
+- set up a working connection between my application and the database and installed a third party library called flask-pymongo.
+- installed 'dnspython' in order to use the Mongo SRV connection string.
+- updated the requirements.txt file to allow Heroku to detect the new requirements for running the app.
+- added the additional imports at the top of app.py to reflect the new installations.("from flask_pymongo import PyMongo").
+- added "from bson.objectid import ObjectId"(because MongoDB stores its data in a JSON-like format called BSON).
+- additional configuration was added in app.py to connect to MongoDb as in the screenshot below:  
+![MongoDB congiuration app.py](screenshots/mdb-configuration-req.png)
+- from MongoDB cluster copied the MONGO_URI connection string, updating database name and password to replace the angle brackets placeholder content.
+- copied the completed string to env.py file to complete the MONGO_URI environment variable.
+- copied the completed string to the MONGO_URI variable in Heroku Config Vars.
+- tested the app to see if it was connecting with the database successfully.  
+
+### Display data from MongoDB on template page:
+To test data from MongoDB would display on a template page within the app I did the following:
+- set up an instance of PyMongo, and added the app into that using a constructor method "mongo = PyMongo(app)".
+- tested to check the app was connecting with MongoDB by creating a function with a decorator that includes a route to that app. 
+- created a template houseplants.html and generated data from the houseplants collection to the template. 
+- ran the app to check the correct data was visible on the houseplants.html file which indicated that the app had connected with MongoDB successfully.
+- With MongoDB and Heroku set up correctly with the app, I was able to set up the templates, design the interface, create, edit and delete records to the app. 
+- Once testing was complete, I changed debug=True (the setting required to be able to detect errors) to debug=False prior to final deployment.
+
+## How to run this project locally 
+### Cloning project into GitPod
+1. Set up a [GitHub account](https://github.com/)
+2. Use the Chrome browser.
+3. Install browser extensions for Chrome.
+4. After installation restart the browser.
+5. Log into GitPod with your gitpod account
+6. Navigate to the Project GitHub [repository](https://github.com/RachelFurlong-dev/milestone-project3-v1).
+7. Click the green GitPod button in the top right hand cornner of the repository to create a new [workspace](https://gitpod.io/workspaces) to enable you to work locally'
+8. More information about cloning is available [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) 
+## Set up the database on [MongoDB Atlas](https://www.mongodb.com/)
+Do the following:
+1. Create a cluster on which a database can run.
+2. Add a new database user with username and password.
+3. Set privileges as Read and Write to the database.
+4. Whitelist IP address and select allow Access From Anywhere.
+5. Once the cluster is fully provisioned, create a new database called houseplantr_db to store the data that will be used with the app.
+### Set up collections:
+1. Create three collections within the database: Categories, Houseplants and Users.
+2. In the Categories collection, Insert a Document and create a key value pair: category_name:Flowering. At this stage only one houseplant category is needed just to get the app set up. The rest of the categories will be added later.
+### Add document:
+1. In the houseplants collection set up a document: The first key is category_name:“Flowering” as before. 
+2. Add additional fields: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. The relevant houseplant data should be added as key value pairs as in the screenshot below. Again, only one houseplant document is needed at this stage to get the app set up, and new documents will be created within the app.  
+![Key Value Pairs within a document](screenshots/example-key-value-pairs.png)
+## Create the Flask Application
+To create the Flask application:
+1. in the Terminal type; 'pip3 install Flask' so that Flask functionality is ready to be imported.
+2. create an env.py in which to store sensitive data.
+3. create a gitignore file to ignore env.py as well as the the '__pycache__/' directory - data that must be kept secure such as secret keys must not be saved to GitHub.
+4. import os to set up default environment variables in the env.py file, as in the screenshot below:  
+![Environment Variables](screenshots/environment-variables.png)
+5. update the env package in app.py so Heroku will be able to find the corrrect environment variables as they are not be pushed to GitHub.
+6. set the final parameter to debug=True during development, in order to detect errors that may appear, instead of a generic server warning. Change this back to debug=False prior to final deployment.
+7. set up a test function to check the app is working correctly in advance of connecting the app to MongoDB.
+## Deploy application to Heroku:
+To deploy the application to [Heroku](https://www.heroku.com/):
+1. create a requirements.txt file where the dependencies required to run the app will be stored.
+2. create a Procfile where Heroku can get the information needed to run the app.
+3. create a new app in Heroku and give it a name.
+4. select location nearest to you.
+5. connect to GitHub within the app using the GitHub connect option.
+6. select Settings > Reveal Config Vars, and type in the variables from the env.py file into the fields in MongoDB – leave the MONGO_URI field contents empty for now.
+7. in GitHub push the two new files (requirements.txt and Procfile) to the repository.
+8. select the Deploy Tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enables Heroku to receive the code from GitHub and build the app using the required packages.
+## Connect Flask to MongoDB:
+To connect Flask to MongoDB complete the following:
+1. set up a working connection between your application and your database. 
+2. install a third party library called flask-pymongo.
+3. install 'dnspython' in order to use the Mongo SRV connection string.
+4. update the requirements.txt file to allow Heroku to detect the new requirements for running the app.
+5. add the additional imports at the top of app.py to reflect the new installations.("from flask_pymongo import PyMongo").
+6. add "from bson.objectid import ObjectId"(MongoDB stores its data in a JSON-like format called BSON).
+7. update configuration in app.py to connect to MongoDB. 
+8. in your MongoDB cluster copy the MONGO_URI connection string, updating database name and password with your chosen settings to replace the angle brackets placeholder content.
+9. copy the completed string to env.py file to complete the MONGO_URI environment variable.
+10. copy the completed string to the MONGO_URI variable in Heroku Config Vars.
+11. To test the app to see if it is connecting with the database successfully, run the app to check the correct data from the houseplants collection is visible on the houseplants.html file. This indicates that the app has connected with MongoDB successfully.
+12. Deployment of the app is complete. Add more records to the app to create the layout of the home page. 
+
+# Accessibility
+Accessible features include:
+- Adding alt tags via the jinga templating language to user uploaded images.
+- For linked icons, I used aria labels indicating the link destination.
+- Created responsive layouts which I tested across multiple screen sizes. 
+- Validated code - see [Testing section](/TESTING.md)
 
 # Credits
 ## Code
