@@ -6,6 +6,8 @@
 - Tested that minimum and maximum length
 - Tested that on adding category it's redirected to categories form and at the same time the added category is listed.
 ![Add category form](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Newcategory.png?raw=true)
+![Required field](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Categoryfieldisrequiried.png?raw=true)
+![Minimum length](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/minimum_categorylength.png?raw=true)
 
 ## Tested Edit/Delete Category form validation
 [Categories]()
@@ -21,7 +23,9 @@
 - Tested all the fields are required fields and cannot be left blank
 - Tested that minimum and maximum length
 - Tested that on adding ingredient it's redirected to ingredients form and at the same time the added ingredient is listed.
-![Add ingredient form](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Newingredient.png?raw=true) 
+![Add ingredient form](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Newingredient.png?raw=true)
+![Required field](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Ingredientfieldisrequiried.png?raw=true)
+![Minimum length](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/minimum_ingredientlength.png?raw=true) 
 
 ## Tested Edit/Delete Ingredient form validation
 [Ingredients]()
@@ -42,6 +46,7 @@
 - Tested the submit button added the record to the database and can be seen listed in PostgreSQL.
 - Tested that the user is redirected to the home page with added recipe to tell the user that the recipe has been successfully added.  
 ![Add recipe page](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Nwerecipe.png?raw=true)
+![Required field](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/recipefieldisrequiried.png?raw=true)
 
 ### Tested homepage with edit and delete recipe form validation
 - Tested that all the fields are prefilled with the data needs to be edited. 
@@ -93,12 +98,12 @@ I tested routes.py file with [PEP8 Online Check](http://pep8online.com/) and the
 ![PEP8 compliant]()
 
 ## Confirmation message examples
-Throughout testing I have referred to the 'flash messages' that inform the user when they have completed an action within the app. Some of these are illustrated below:
+while deleting a record a confirmation message is displayed to the user before deleting. Some of these are illustrated below:
 ![Confirmation message examples](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/deleterecipemodal.png?raw=true)
 
 ## Performance testing
 I tested the app with Lighthouse in Chrome Dev Tools. Whilst the scores were good especially for best practices, the app would be improved primarily by reducing the size of the images used, in order to improve page load speed.
-![Lighthouse performance summary](screenshots/lighthouse-performance-summary.png)
+![Lighthouse performance summary](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/performance.png?raw=true)
 
 # Testing User Stories from User Experience (UX) Section
  * First Time Visitor Goals
