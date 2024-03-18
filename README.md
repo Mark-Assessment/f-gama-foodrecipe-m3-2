@@ -88,7 +88,7 @@ I created a menu to help enable the user to navigate the app. The menu is respon
 ### Home page desktop
 ![Home page desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Homepage.png?raw=true)
 ### Home page mobile
-![Home page mobile](screenshots/nav-logged-out-view-desktop.png)
+![Home page mobile](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/iPad10th.png?raw=true)
 ### Category desktop
 ![Category desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Categorieslist.png?raw=true)
 ### Category mobile

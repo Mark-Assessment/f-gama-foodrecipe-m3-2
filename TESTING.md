@@ -134,5 +134,7 @@ I tested the app with Lighthouse in Chrome Dev Tools. Whilst the scores were goo
    2. As a Frequent User, to be able to add recipe by different people.
 
 # Known Bugs
-* When I add a recipe I see some space on decription and preparation method input fields
+* When I add a recipe I see some space on description and preparation method input fields
   * I tried fixing, Since there is not much impact on the UX,I left it unfixed
+  ![Lighthouse performance summary](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/knownbug.png?raw=true)
+  
