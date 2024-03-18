@@ -64,23 +64,18 @@ All navigation links on desktop and mobile were tested to make sure they linked 
 
 ## Browser testing
 - The desktop App was tested on Google Chrome, Microsoft Edge and Safari browsers, to check for responsive layouts and functionality on all pages. I tested all page layouts on a number of screensizes, which all proved responsive to the screen size. I tested website functionality on all browsers to cheeck that users were able to navigate through all pages, add, edit and delete recipe, ingredients and categories. The homepage view is illustrated below:  
-![Desktop browser views](screenshots/desktop-browser-views.png)
+![Desktop browser views](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/browserdesktop.png?raw=true)
 ## Responsive layouts testing
 - The App was tested on a series of devices to check the layouts automatically adapt to different devices with different screen sizes. I took a mobile first approach to responsive design; for example on the home page, the layout changes from a one column layout on mobile screens. This meant the user experience was as good, whether the site was viewed on a small mobile device or large desktop screen.
 - Mobile screen - Iphone 12 pro:  
-![iphone12 pro layouts](screenshots/testing-iphone12-pro.png). 
-- Tablet layout - iPad mini   
-![iPad mini layouts](screenshots/testing-ipad-mini.png)
-- Medium screen - Surface Pro7:
-![Surface Pro7 layouts](screenshots/testing-surface-pro7.png)
-- Large screen - iMac 27"   
-![Imac 27" layouts](screenshots/testing-imac-27.png) 
+![iphone13 layouts](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/iPhone13.png?raw=true). 
+- Tablet layout - iPad 10th edition   
+![iPad mini layouts](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/iPad10thedition.png?raw=true) 
 
 ## Device testing CRUD functionality
-- I tested adding a recipe record on iPhone 11 device, then edited it and deleted it without any issues.
-- I tested adding a recipe record on iMac 27” device, then edited it and deleted it without any issues.
-- I tested adding a recipe record on MacBook 13" device, then edited it and deleted it without any issues.
-- I tested adding a recipe record on Microsoft Surface device, then edited it and deleted it without any issues.
+- I tested adding a recipe record on iPhone 13 device, then edited it and deleted it without any issues.
+- I tested adding a recipe record on iPad10th Edition device, then edited it and deleted it without any issues.
+- I tested adding a recipe record on MacBook device, then edited it and deleted it without any issues.
 
 # Validation
 ### HTML validation:
@@ -95,11 +90,11 @@ The script.js was tested by [Jshint online checker](https://jshint.com/) Two war
 ![Javascript warning](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/javascriptresult.png?raw=true)
 ### Python validation
 I tested routes.py file with [PEP8 Online Check](http://pep8online.com/) and the file is PEP8 compliant.  
-![PEP8 compliant](screenshots/pep8-online-validation.png)
+![PEP8 compliant]()
 
 ## Confirmation message examples
 Throughout testing I have referred to the 'flash messages' that inform the user when they have completed an action within the app. Some of these are illustrated below:
-![Flash message examples](screenshots/flash-message-examples.png)
+![Confirmation message examples](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/deleterecipemodal.png?raw=true)
 
 ## Performance testing
 I tested the app with Lighthouse in Chrome Dev Tools. Whilst the scores were good especially for best practices, the app would be improved primarily by reducing the size of the images used, in order to improve page load speed.
