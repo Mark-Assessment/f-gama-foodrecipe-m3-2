@@ -102,11 +102,9 @@ def add_recipe():
         )
         db.session.add(recipes)
         db.session.commit()
-        ingredients_id=request.form.getlist("ingredients_id")
+        ingredients_id = request.form.getlist("ingredients_id")
         for ingredient_id in ingredients_id:
-            index_entry = Ingredient_index(
-            recipe_id=recipes.id,
-            ingredient_id=ingredient_id)
+            index_entry = Ingredient_index(recipe_id=recipes.id, ingredient_id=ingredient_id)
             db.session.add(index_entry)
             db.session.commit()
         return redirect(url_for("home"))
@@ -123,19 +121,17 @@ def edit_recipe(recipe_id):
     full_ingredients = Ingredients.query.filter(Ingredients.id.in_(ingredient_names)).all()
     if request.method == "POST":
         recipe.recipe_name = request.form.get("recipe_name"),
-        recipe.recipe_description=request.form.get("recipe_description"),
-        recipe.prep_method=request.form.get("prep_method"),
-        recipe.category_id=request.form.get("category_id")
+        recipe.recipe_description = request.form.get("recipe_description"),
+        recipe.prep_method = request.form.get("prep_method"),
+        recipe.category_id = request.form.get("category_id")
         db.session.commit()
-        ingredients_id=request.form.getlist("ingredients_id")
+        ingredients_id = request.form.getlist("ingredients_id")
         for ingredient_id in ingredients_id:
-            index_entry = Ingredient_index(
-            recipe_id=recipe.id,
-            ingredient_id=ingredient_id)
+            index_entry = Ingredient_index(recipe_id=recipe.id, ingredient_id=ingredient_id)
             db.session.add(index_entry)
             db.session.commit()
         return redirect(url_for("home"))
-    return render_template("edit_recipe.html", recipe=recipe, categories=categories, allingredients=allingredients,full_ingredients=full_ingredients)
+    return render_template("edit_recipe.html", recipe=recipe, categories=categories, allingredients=allingredients, full_ingredients=full_ingredients)
 
 
 @app.route("/delete_recipe/<int:recipe_id>")
@@ -144,5 +140,3 @@ def delete_recipe(recipe_id):
     db.session.delete(recipe)
     db.session.commit()
     return redirect(url_for("home"))
-
-

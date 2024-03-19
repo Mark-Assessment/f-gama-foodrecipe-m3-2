@@ -92,11 +92,11 @@ I created a menu to help enable the user to navigate the app. The menu is respon
 ### Category desktop
 ![Category desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Categorieslist.png?raw=true)
 ### Category mobile
-![Category mobile](screenshots/nav-logged-in-user-desktop-view.png)
+![Category mobile](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/categoriesmobile.png?raw=true)
 ### Ingredient desktop
 ![Ingredient desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/ingredientlist.png?raw=true)
 ### Ingredient mobile
-![Ingredient mobile](screenshots/nav-logged-in-admin-desktop-view.png)
+![Ingredient mobile](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/ingredientsmobile.png?raw=true)
 
 # UX features:
 ## Modal
@@ -152,7 +152,7 @@ The user can delete a record by clicking a delete button for the specific ingred
      * Materialize is a modern responsive CSS framework based on Material Design by Google. Materialize was used to assist with the responsiveness and styling of the website; especially useful in this project  are the features for creating forms.
   2. [Font Awesome:](https://fontawesome.com/)
      *  Font Awesome is used to add help icon
-  3. [Heroku:]
+  3. [Heroku:](https://www.heroku.com/)
      * The project was deployed to Heroku. Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
   4. [PostgreSQL:](https://www.postgresql.org/)
      * PostgreSQL was used to store the data required for the project. It is a object-relational database used for data storage.
@@ -164,10 +164,6 @@ The user can delete a record by clicking a delete button for the specific ingred
      * Balsamiq was used to create the [wireframes]() during the design process.
   8. [Am I reponsive:](https://ui.dev/amiresponsive)
      * Am I reponsive was used to create a mockup to add in a README.md file
-# Testing
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
-  * [W3C Markup Validator]() - [Results](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/w3cmarkupvalidatorresult.jpg)
-  * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://github.com/fatimagama20/TutorMilestoneProject1/blob/main/assets/image/cssresult.jpg)
  
 # Deployment
 GitHub Pages
@@ -226,7 +222,26 @@ I Create an account with ElephantSQL
 - Create a database.
     - Click “Create New Instance”
     - Set up your plan
-       - 
+       - Give your plan a Name (this is commonly the name of the project)
+       - Select the Tiny Turtle (Free) plan
+       - You can leave the Tags field blank
+    - Select “Select Region”
+    - Select a data center near you
+    - Then click “Review”
+    - Check your details are correct and then click “Create instance”
+    - Return to the ElephantSQL dashboard and click on the database instance name for this project
+    - In the URL section, clicking the copy icon will copy the database URL to your clipboard
+    - Leave this tab open, we will come back here later
+- Preparing your code for Deployment
+    Now you have a database, we need to make some modifications to the code in your IDE.In your IDE workspace
+    Before we can build our application on Heroku, we need to create a few files that Heroku will need to run our application:
+    - A requirements.txt file which contains a list of the Python dependencies that our project needs in order to run successfully.
+    - A Procfile which contains the start command to run the project.
+    - Generate the requirements.txt file with the following command in the terminal. After you run this command a new file called requirements.txt should appear in your root directory
+      - pip freeze --local > requirements.txt
+   - Heroku requires a Procfile containing a command to run your program. Inside the root directory of your project create the new file. It must be called Procfile with a capital P, otherwise Heroku won’t recognise it
+   - Inside the file, add the following command
+      - web: python run.py
 - whitelisted IP address and selected allow Access From Anywhere.
 - Once the cluster was fully provisioned, I created a new database called houseplantr_db to store the data that will be used with the app.
 ### Set up collections and add category document:
