@@ -191,17 +191,36 @@ To create the Flask application I did the following:
 - set up a test function to check the app was working correctly in advance of connecting the app to PostgreSQL.
 
 ## Set up the database with PostgreSQL
-- Now that we have basic flask application up and running, it's time to create our database schema by defining our models
+- Now that I have basic flask application up and running, it's time to create a database schema by defining models
+- Within a foodrecipe package created models.py file and import a db from the package
+- I created three separate tables, which will be represented by class-based models using SQLAlchemy's ORM.
+- The first table will be for various categories, so let's call this class 'Category', which will use the declarative base from SQLAlchemy's model.
+![Category model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/categorymodel.png?raw=true)
+- The second table will be for various ingredients, so let's call this class 'Ingredients', which
+will use the declarative base from SQLAlchemy's model.
+![Ingredients model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Ingredientsmodel.png?raw=true)
+- The third table will be for each recipe created, so we'll call this class 'Recipe', also using the default db.Model.
+![Recipe model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Recipemodel.png?raw=true)
+- And the last table will be relation between the recipe and ingredients
+![Ingredient_index model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Ingredient_indexmodel.png?raw=true)
+- Go ahead and save the file, and let's return back to routes.py file now.
+At the top of the routes, import these classes in order to generate a database next.
 
-### Set up collections and add category document:
-- I created three collections within the database: Categories, Houseplants and Users.
-- In the Categories collection, I inserted a document and created a key value pair: category_name:Flowering. (At this stage only one houseplant category was needed just to get the app set up. The rest of the categories were added later).
-### Add houseplant document to a collection:
-- In the houseplants collection I set up a document. The first key was category_name:“Flowering” as before. Then add additional fields were added: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. 
-- The relevant houseplant data was added as key value pairs as in the screenshot below. Again, only one houseplant document was needed just to get the app set up, and new documents would be created within the app.  
-![Key Value Pairs within a document](screenshots/example-key-value-pairs.png)
+#  Database schema created within Postgres.
+- Let's navigate to the Terminal, and login to the Postgres CLI by typing 'psql' and hitting enter.
+- To create the database, we can simply type: 
+  - CREATE DATABASE foodrecipe;
+- Once that's created, we'll switch over to that connection by typing:
+  - \c foodrecipe;
+- We don't need to do anything else within the Postgres CLI now that we have the database created, so let's come out of the CLI by typing \q.
 
-
+#  Migrate models into new database.
+- Next, need to use Python to generate and migrate models into this new database. This will take the models that I've created for Category, Ingredients, Recipe and Ingredient_index, and build the database schema using the details I've provided. It's important to note, that if you were to modify your models later, then you'll need to migrate these changes each time the file is updated with new context.
+- Let's go ahead and access the Python interpreter by typing "python3" and enter.
+- From here, we need to import 'db' variable found within the foodrecipe package, so type:
+  - from taskmanager import db
+- Now, using db, we need to perform the .create_all() method:
+- Let's exit the Python interpreter by typing exit().
 
 ### Deploy application to Heroku:
 I Create an account with ElephantSQL 
@@ -271,74 +290,22 @@ Congratulations! You have successfully deployed your app to Heroku! [live site](
 3. Install browser extensions for Chrome.
 4. After installation restart the browser.
 5. Log into GitPod with your gitpod account
-6. Navigate to the Project GitHub [repository](https://github.com/RachelFurlong-dev/milestone-project3-v1).
+6. Navigate to the Project GitHub [repository](https://github.com/fatimagama20/food-receipe).
 7. Click the green GitPod button in the top right hand cornner of the repository to create a new [workspace](https://gitpod.io/workspaces) to enable you to work locally'
 8. More information about cloning is available [here](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) 
-## Set up the database on [MongoDB Atlas](https://www.mongodb.com/)
-Do the following:
-1. Create a cluster on which a database can run.
-2. Add a new database user with username and password.
-3. Set privileges as Read and Write to the database.
-4. Whitelist IP address and select allow Access From Anywhere.
-5. Once the cluster is fully provisioned, create a new database called houseplantr_db to store the data that will be used with the app.
-### Set up collections:
-1. Create three collections within the database: Categories, Houseplants and Users.
-2. In the Categories collection, Insert a Document and create a key value pair: category_name:Flowering. At this stage only one houseplant category is needed just to get the app set up. The rest of the categories will be added later.
-### Add document:
-1. In the houseplants collection set up a document: The first key is category_name:“Flowering” as before. 
-2. Add additional fields: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. The relevant houseplant data should be added as key value pairs as in the screenshot below. Again, only one houseplant document is needed at this stage to get the app set up, and new documents will be created within the app.  
-![Key Value Pairs within a document](screenshots/example-key-value-pairs.png)
-## Create the Flask Application
-To create the Flask application:
-1. in the Terminal type; 'pip3 install Flask' so that Flask functionality is ready to be imported.
-2. create an env.py in which to store sensitive data.
-3. create a gitignore file to ignore env.py as well as the the '__pycache__/' directory - data that must be kept secure such as secret keys must not be saved to GitHub.
-4. import os to set up default environment variables in the env.py file, as in the screenshot below:  
-![Environment Variables](screenshots/environment-variables.png)
-5. update the env package in app.py so Heroku will be able to find the corrrect environment variables as they are not be pushed to GitHub.
-6. set the final parameter to debug=True during development, in order to detect errors that may appear, instead of a generic server warning. Change this back to debug=False prior to final deployment.
-7. set up a test function to check the app is working correctly in advance of connecting the app to MongoDB.
-## Deploy application to Heroku:
-To deploy the application to [Heroku](https://www.heroku.com/):
-1. create a requirements.txt file where the dependencies required to run the app will be stored.
-2. create a Procfile where Heroku can get the information needed to run the app.
-3. create a new app in Heroku and give it a name.
-4. select location nearest to you.
-5. connect to GitHub within the app using the GitHub connect option.
-6. select Settings > Reveal Config Vars, and type in the variables from the env.py file into the fields in MongoDB – leave the MONGO_URI field contents empty for now.
-7. in GitHub push the two new files (requirements.txt and Procfile) to the repository.
-8. select the Deploy Tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enables Heroku to receive the code from GitHub and build the app using the required packages.
-## Connect Flask to MongoDB:
-To connect Flask to MongoDB complete the following:
-1. set up a working connection between your application and your database. 
-2. install a third party library called flask-pymongo.
-3. install 'dnspython' in order to use the Mongo SRV connection string.
-4. update the requirements.txt file to allow Heroku to detect the new requirements for running the app.
-5. add the additional imports at the top of app.py to reflect the new installations.("from flask_pymongo import PyMongo").
-6. add "from bson.objectid import ObjectId"(MongoDB stores its data in a JSON-like format called BSON).
-7. update configuration in app.py to connect to MongoDB. 
-8. in your MongoDB cluster copy the MONGO_URI connection string, updating database name and password with your chosen settings to replace the angle brackets placeholder content.
-9. copy the completed string to env.py file to complete the MONGO_URI environment variable.
-10. copy the completed string to the MONGO_URI variable in Heroku Config Vars.
-11. To test the app to see if it is connecting with the database successfully, run the app to check the correct data from the houseplants collection is visible on the houseplants.html file. This indicates that the app has connected with MongoDB successfully.
-12. Deployment of the app is complete. Add more records to the app to create the layout of the home page. 
 
 # Accessibility
 Accessible features include:
-- Adding alt tags via the jinga templating language to user uploaded images.
-- For linked icons, I used aria labels indicating the link destination.
 - Created responsive layouts which I tested across multiple screen sizes. 
 - Validated code - see [Testing section](/TESTING.md)
 
 # Credits
 ## Code
-* [Bootstrap 5.0:](https://getbootstrap.com/docs/5.0/getting-started/introduction/) Bootstrap was used significantly throughout the project to make it responsive. I used the Grid system as well as inputting a fixed-top navbar, a progress bar and contact form.
-
-* [Stack Overflow](https://stackoverflow.com/) was used to help me style the navbar text colour and was used in HTML to close the navbar when a link is clicked on mobile.
+* [Materializecss 1.0.0:](https://materializecss.com/) Materializecss was used significantly throughout the project to make it responsive. I used the navbar, collapsable, dropdown and form.
 
 * [W3Schools](https://www.w3schools.com/) was used to provide a smooth scroll to the website and to style the contact form and the submit button.
 
-* [Courses.Code Institute](https://learn.codeinstitute.net/ci_program/level5diplomainwebappdevelopment) was used to style the progress bars and I used the demonstrated jQuery for the contact form.
+* [Courses.Code Institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DIWADRDB+2022_Q3/courseware/c0c31790fcf540539fd2bd3678b12406/6e44128b0b37416ab40c1a87ef2cb32a/) was used as base to design the project.
 
 ## Content
 * [Google :](https://www.google.co.uk/) Some content was searched from google
@@ -346,11 +313,10 @@ Accessible features include:
 
 ## Media
 * [Google:](https://www.google.co.uk/) Some Images were downloaded from google.
-* [Unsplash:](https://unsplash.com/) Some image are taken from Unsplash
 
 ## Acknowledgements
 * My Mentor for continuous helpful feedback.
-* Tutor support at Code Institute for their support.
+* Tutor/Slack support at Code Institute for their support.
 
 
 
