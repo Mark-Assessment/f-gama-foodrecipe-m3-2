@@ -165,98 +165,17 @@ The user can delete a record by clicking a delete button for the specific ingred
   8. [Am I reponsive:](https://ui.dev/amiresponsive)
      * Am I reponsive was used to create a mockup to add in a README.md file
  
-# Deployment
-GitHub Pages
-The project was deployed to GitHub Pages using the following steps...
-
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/fatimagama20/TutorMilestoneProject1)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
-   * Alternatively Click Here for a GIF demonstrating the process starting from Step 2.
-3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
-4. Under "Source", click the dropdown called "None" and select "Master Branch".
-5. The page will automatically refresh.
-6. Scroll back down through the page to locate the now published site link in the "GitHub Pages" section.
-# Forking the GitHub Repository
-By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
-
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/fatimagama20/TutorMilestoneProject1)
-2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
-3. You should now have a copy of the original repository in your GitHub account.
-# Making a Local Clone
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/fatimagama20/TutorMilestoneProject1)
-2. Under the repository name, click "Clone or download".
-3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
-4. Open Git Bash
-5. Change the current working directory to the location where you want the cloned directory to be made.
-6. Type git clone, and then paste the URL you copied in Step 3.
-
-   $ git clone https://github.com/fatimagama20/TutorMilestoneProject1
-7. Press Enter. Your local clone will be created.
-
-   $ git clone https://github.com/fatimagama20/TutorMilestoneProject1
-
-> Cloning into `CI-Clone`...
-> remote: Counting objects: 10, done.
-> remote: Compressing objects: 100% (8/8), done.
-> remove: Total 10 (delta 1), reused 10 (delta 1)
-> Unpacking objects: 100% (10/10), done.
-Click Here to retrieve pictures for some of the buttons and more detailed explanations of the above process.
-
 # Deployment 
 ## Setting up a GitHub caccount
 - I set up a [GitHub account](https://github.com/)
 - Used the Chrome browser
 - Created the Project GitHub repository
 - Clicked the green GitPod button in the top right hand cornner of the repository to create a new [workspace](https://gitpod.io/workspaces) to enable me to work locally'
-## Set up the database with PostgreSQL
-I Create an account with ElephantSQL 
-- Navigate to ElephantSQL.com and click “Log in”:
-- Select “Sign in with GitHub”.
-- Authorise ElephantSQL with your selected GitHub account.
-- In the Create new team form:
-    - Add a team name (your own name is fine)
-    - Read and agree to the Terms of Service
-    - Select Yes for GDPR
-    - Provide your email address
-    - Click “Create Team”
-- Create a database.
-    - Click “Create New Instance”
-    - Set up your plan
-       - Give your plan a Name (this is commonly the name of the project)
-       - Select the Tiny Turtle (Free) plan
-       - You can leave the Tags field blank
-    - Select “Select Region”
-    - Select a data center near you
-    - Then click “Review”
-    - Check your details are correct and then click “Create instance”
-    - Return to the ElephantSQL dashboard and click on the database instance name for this project
-    - In the URL section, clicking the copy icon will copy the database URL to your clipboard
-    - Leave this tab open, we will come back here later
-- Preparing your code for Deployment
-    Now you have a database, we need to make some modifications to the code in your IDE.In your IDE workspace
-    Before we can build our application on Heroku, we need to create a few files that Heroku will need to run our application:
-    - A requirements.txt file which contains a list of the Python dependencies that our project needs in order to run successfully.
-    - A Procfile which contains the start command to run the project.
-    - Generate the requirements.txt file with the following command in the terminal. After you run this command a new file called requirements.txt should appear in your root directory
-      - pip freeze --local > requirements.txt
-   - Heroku requires a Procfile containing a command to run your program. Inside the root directory of your project create the new file. It must be called Procfile with a capital P, otherwise Heroku won’t recognise it
-   - Inside the file, add the following command
-      - web: python run.py
-- whitelisted IP address and selected allow Access From Anywhere.
-- Once the cluster was fully provisioned, I created a new database called houseplantr_db to store the data that will be used with the app.
-### Set up collections and add category document:
-- I created three collections within the database: Categories, Houseplants and Users.
-- In the Categories collection, I inserted a document and created a key value pair: category_name:Flowering. (At this stage only one houseplant category was needed just to get the app set up. The rest of the categories were added later).
-### Add houseplant document to a collection:
-- In the houseplants collection I set up a document. The first key was category_name:“Flowering” as before. Then add additional fields were added: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. 
-- The relevant houseplant data was added as key value pairs as in the screenshot below. Again, only one houseplant document was needed just to get the app set up, and new documents would be created within the app.  
-![Key Value Pairs within a document](screenshots/example-key-value-pairs.png)
 
 ### Create the Flask Application
 To create the Flask application I did the following:
-- Created a new repository in [GitHub](https://github.com/RachelFurlong-dev/milestone-project3-v1)
-- in the Terminal typed; 'pip3 install Flask' so that Flask functionality was ready to be imported.
-- created the app.py file which would run the application.
+- Created a new repository in [GitHub](https://github.com/fatimagama20/food-receipe)
+- in the Terminal typed; 'pip3 install 'Flask-SQLAlchemy<3' psycopg2 sqlalchemy==1.4.46' so that Flask functionality was ready to be imported.
 - created an env.py in which to store sensitive data.
 - created a gitignore file which was set up to ignore env.py as well as the the '__pycache__/' directory.so that data that must be kept secure such as secret keys would not be saved to GitHub.
 - imported os to set up default environment variables in the env.py file, as in the screenshot below:  
@@ -268,6 +187,18 @@ To create the Flask application I did the following:
 ![Run application](screenshots/app-run.png)
 - the final parameter was set to debug=True, during development, so I could see any actual errors that may appear, instead of a generic server warning. I changed this back to debug=False prior to final deployment.
 - set up a test function to check the app was working correctly in advance of connecting the app to MongoDB.
+
+## Set up the database with PostgreSQL
+
+### Set up collections and add category document:
+- I created three collections within the database: Categories, Houseplants and Users.
+- In the Categories collection, I inserted a document and created a key value pair: category_name:Flowering. (At this stage only one houseplant category was needed just to get the app set up. The rest of the categories were added later).
+### Add houseplant document to a collection:
+- In the houseplants collection I set up a document. The first key was category_name:“Flowering” as before. Then add additional fields were added: horticultural name, common name, description, date, created_by, image_url, and houseplant_care. 
+- The relevant houseplant data was added as key value pairs as in the screenshot below. Again, only one houseplant document was needed just to get the app set up, and new documents would be created within the app.  
+![Key Value Pairs within a document](screenshots/example-key-value-pairs.png)
+
+
 
 ### Deploy application to Heroku:
 I Create an account with ElephantSQL 
@@ -328,31 +259,7 @@ I Create an account with ElephantSQL
      - db.create_all()
    - Exit the Python terminal, by typing exit() and hitting enter, and close the console. Our Heroku database should now have the tables and columns created from our models.py file.
    - The app should be up and running now, so click the “Open app” button
-Congratulations! You have successfully deployed your app to Heroku! [live site](https://foodrecipe-798974a40ee6.herokuapp.com/).
-
-
-### Connect Flask to MongoDB:
-To connect Flask to [MongoDB](https://www.mongodb.com/) I did the following:
-- set up a working connection between my application and the database and installed a third party library called flask-pymongo.
-- installed 'dnspython' in order to use the Mongo SRV connection string.
-- updated the requirements.txt file to allow Heroku to detect the new requirements for running the app.
-- added the additional imports at the top of app.py to reflect the new installations.("from flask_pymongo import PyMongo").
-- added "from bson.objectid import ObjectId"(because MongoDB stores its data in a JSON-like format called BSON).
-- additional configuration was added in app.py to connect to MongoDb as in the screenshot below:  
-![MongoDB congiuration app.py](screenshots/mdb-configuration-req.png)
-- from MongoDB cluster copied the MONGO_URI connection string, updating database name and password to replace the angle brackets placeholder content.
-- copied the completed string to env.py file to complete the MONGO_URI environment variable.
-- copied the completed string to the MONGO_URI variable in Heroku Config Vars.
-- tested the app to see if it was connecting with the database successfully.  
-
-### Display data from MongoDB on template page:
-To test data from MongoDB would display on a template page within the app I did the following:
-- set up an instance of PyMongo, and added the app into that using a constructor method "mongo = PyMongo(app)".
-- tested to check the app was connecting with MongoDB by creating a function with a decorator that includes a route to that app. 
-- created a template houseplants.html and generated data from the houseplants collection to the template. 
-- ran the app to check the correct data was visible on the houseplants.html file which indicated that the app had connected with MongoDB successfully.
-- With MongoDB and Heroku set up correctly with the app, I was able to set up the templates, design the interface, create, edit and delete records to the app. 
-- Once testing was complete, I changed debug=True (the setting required to be able to detect errors) to debug=False prior to final deployment.
+Congratulations! You have successfully deployed your app to Heroku! [live site](https://foodrecipe-798974a40ee6.herokuapp.com/). 
 
 ## How to run this project locally 
 ### Cloning project into GitPod
