@@ -270,14 +270,42 @@ To create the Flask application I did the following:
 - set up a test function to check the app was working correctly in advance of connecting the app to MongoDB.
 
 ### Deploy application to Heroku:
-To deploy the application to the cloud platform [Heroku](https://www.heroku.com/) I did the following:
-- created a requirements.txt file where the dependencies required to run the app would be stored.
-- created a Procfile where Heroku could get the information needed to run the app.
-- created a new app called Houseplantr-v1 in Heroku.
-- connected to GitHub within the app using the GitHub connect option.
-- selected settings>reveal config vars, added in the variables from the env.py file – left the MONGO_URI field contents empty to be completed later on in the development process.
-![Heroku Config Vars](screenshots/heroku-config-vars.png)
-- pushed the two new files (requirements.txt and Procfile) to the repository.
+I Create an account with ElephantSQL 
+- Navigate to ElephantSQL.com and click “Log in”:
+- Select “Sign in with GitHub”.
+- Authorise ElephantSQL with your selected GitHub account.
+- In the Create new team form:
+    - Add a team name (your own name is fine)
+    - Read and agree to the Terms of Service
+    - Select Yes for GDPR
+    - Provide your email address
+    - Click “Create Team”
+- Create a database.
+    - Click “Create New Instance”
+    - Set up your plan
+       - Give your plan a Name (this is commonly the name of the project)
+       - Select the Tiny Turtle (Free) plan
+       - You can leave the Tags field blank
+    - Select “Select Region”
+    - Select a data center near you
+    - Then click “Review”
+    - Check your details are correct and then click “Create instance”
+    - Return to the ElephantSQL dashboard and click on the database instance name for this project
+    - In the URL section, clicking the copy icon will copy the database URL to your clipboard
+    - Leave this tab open, we will come back here later
+- Preparing your code for Deployment
+    Now you have a database, we need to make some modifications to the code in your IDE.In your IDE workspace
+    Before we can build our application on Heroku, we need to create a few files that Heroku will need to run our application:
+    - A requirements.txt file which contains a list of the Python dependencies that our project needs in order to run successfully.
+    - A Procfile which contains the start command to run the project.
+    - Generate the requirements.txt file with the following command in the terminal. After you run this command a new file called requirements.txt should appear in your root directory
+      - pip freeze --local > requirements.txt
+   - Heroku requires a Procfile containing a command to run your program. Inside the root directory of your project create the new file. It must be called Procfile with a capital P, otherwise Heroku won’t recognise it
+   - Inside the file, add the following command
+      - web: python run.py
+   - Open your __init__.py file
+   - Add an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL. [database_url]()
+
 - selected Deploy Tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enabled Heroku to receive the code from GitHub and build the app using the required packages to deploy the [live site](https://houseplantr-v1.herokuapp.com/).
 
 
