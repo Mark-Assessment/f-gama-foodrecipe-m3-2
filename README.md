@@ -178,13 +178,14 @@ To create the Flask application I did the following:
 - in the Terminal typed; 'pip3 install 'Flask-SQLAlchemy<3' psycopg2 sqlalchemy==1.4.46' so that Flask functionality was ready to be imported.
 - created an env.py in which to store sensitive data.
 - created a gitignore file which was set up to ignore env.py as well as the the '__pycache__/' directory.so that data that must be kept secure such as secret keys would not be saved to GitHub.
+![]()
 - imported os to set up default environment variables in the env.py file, as in the screenshot below:  
-![Environment Variables](screenshots/environment-variables.png)
-- in app.py import Flask 
+![Environment Variables](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/environmentvarfile.png?raw=true)
+- in run.py import Flask 
 - imported the env package so Heroku would be able to find the environment variables as they would not be pushed to GitHub.
 - created an instance of Flask, stored in a variable called 'app'.
 - told the app how and where to run the application as in the screenshot below:  
-![Run application](screenshots/app-run.png)
+![Run application](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/runfile.png?raw=true)
 - the final parameter was set to debug=True, during development, so I could see any actual errors that may appear, instead of a generic server warning. I changed this back to debug=False prior to final deployment.
 - set up a test function to check the app was working correctly in advance of connecting the app to MongoDB.
 
