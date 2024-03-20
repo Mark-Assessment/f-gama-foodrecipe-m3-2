@@ -304,9 +304,31 @@ I Create an account with ElephantSQL
    - Inside the file, add the following command
       - web: python run.py
    - Open your __init__.py file
-   - Add an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL. [database_url]()
-
-- selected Deploy Tab in Heroku, then Enable Automatic Deploys and Deploy Branch. This enabled Heroku to receive the code from GitHub and build the app using the required packages to deploy the [live site](https://houseplantr-v1.herokuapp.com/).
+   - Add an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL. [database_url](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/database_uri.png?raw=true)
+   - To ensure that SQLAlchemy can also read our external database, its URL needs to start with “postgresql://”, but we should not change this in the environment variable. Instead, we’ll make an addition to our else statement from the previous step to adjust our DATABASE_URL in case it starts with postgres://:[postgresql](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/postgresql.png?raw=true)
+   - Save all your files and then add, commit and push your changes to GitHub
+- Connecting the database to the hosting platform
+   - Log into Heroku.com and click “New” and then “Create a new app”
+   - Choose a unique name for your app, select the region closest to you and click “Create app”
+   - Go to the Settings tab of your new app
+   - Click Reveal Config Vars
+   - Return to your ElephantSQL tab and copy your database URL
+   - Back on Heroku, add a Config Var called DATABASE_URL and paste your ElephantSQL database URL in as the value. Make sure you click “Add”
+   - Add each of your other environment variables except DEVELOPMENT and DB_URL from the env.py file as a Config Var
+- Deploying the app
+   - Navigate to the “Deploy” tab of your app
+   - In the Deployment method section, select “Connect to GitHub”
+   - Search for your repo and click Connect
+   - Optional: You can click Enable Automatic Deploys in case you make any further changes to the project. This will trigger any time code is pushed to your GitHub repository
+   - As we already have all our changes pushed to GitHub, we will use the Manual deploy section and click Deploy Branch. This will start the build process. When finished, it should look something like this
+   - Now, we have our project in place, and we have an empty database ready for use. As you may remember from our local development, we still need to add our tables to our database. To do this, we can click the “More” button and select “Run console”
+   - Type python3 into the console and click Run
+   - This opens the Python terminal, in the same way as it would if we typed python3 into the terminal within our IDE. Let’s now create the tables with the commands we used before
+     - from taskmanager import db
+     - db.create_all()
+   - Exit the Python terminal, by typing exit() and hitting enter, and close the console. Our Heroku database should now have the tables and columns created from our models.py file.
+   - The app should be up and running now, so click the “Open app” button
+Congratulations! You have successfully deployed your app to Heroku! [live site](https://foodrecipe-798974a40ee6.herokuapp.com/).
 
 
 ### Connect Flask to MongoDB:
