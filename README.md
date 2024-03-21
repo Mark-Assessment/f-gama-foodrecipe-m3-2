@@ -303,8 +303,6 @@ Accessible features include:
 ## Code
 * [Materializecss 1.0.0:](https://materializecss.com/) Materializecss was used significantly throughout the project to make it responsive. I used the navbar, collapsable, dropdown and form.
 
-* [W3Schools](https://www.w3schools.com/) was used to provide a smooth scroll to the website and to style the contact form and the submit button.
-
 * [Courses.Code Institute](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+DIWADRDB+2022_Q3/courseware/c0c31790fcf540539fd2bd3678b12406/6e44128b0b37416ab40c1a87ef2cb32a/) was used as base to design the project.
 
 ## Content
