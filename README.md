@@ -5,7 +5,7 @@
 
 Organize your Food Recipe (Website), and Categories help you organize and define your recipes. Course, Cuisine, Main Ingredient, can be customized to whatever you'd like! Add, edit, or remove any of the options in these categories and then add them to your recipes to organize your recipe.
 
-![](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/recipewebsite.png?raw=true)
+![](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/recipewebsite.png?raw=true)
 
 # About Foodrecipe
 
@@ -53,32 +53,32 @@ This food recipe app allows users to sift through tons of recipes, and check coo
     * On the Homepage, I have used a professionally presented food image to suit the purpose of the website, which is providing a good impression for the visitors.
   
 * ## Wireframes
-  * ### Home page Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/wireframes/Home.png)
-  * ### New recipe Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/wireframes/Newrecipe.png)
-  * ### Ingredients Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/wireframes/Ingredients.png)
-  * ### Categories Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/wireframes/Categories.png)
+  * ### Home page Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/wireframes/home.png)
+  * ### New recipe Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/wireframes/newrecipe.png)
+  * ### Ingredients Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/wireframes/ingredients.png)
+  * ### Categories Wireframe - [View](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/wireframes/categories.png)
 
 # Database Schema
 
 - I have represented the data within an entity relationship diagram.
-![Entity Relationship Diagram](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/tablestructure.png?raw=true)
+![Entity Relationship Diagram](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/tablestructure/tablestructure.png?raw=true)
 - I have structured a database using [PostgreSQL](https://www.postgresql.org/), a object-relational database to support the Foodrecipe app.  
 Based on this information, I then created a database structure called foodrecipe db, within which I created 4 tables: category, ingredients, recipe and ingredient_index.
-![Foodrecipe database](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/foodrecipedb.png?raw=true)
+![Foodrecipe database](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/tablestructure/foodrecipedb.png?raw=true)
 - The 'category' stores the specific fields of information about the categories to which the recipe belongs for e.g. Lunch, dinner, chicken, beef, etc.
-![foodrecipe category](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/categorytable.png?raw=true)
+![foodrecipe category](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/tablestructure/categorytable.png?raw=true)
 - The 'ingredients' stores the specific fields of information about the ingredients which is used to create a recipe for example, chicken, flour, pepper etc. 
-![Ingredients collection](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/ingredientstable.png?raw=true)  
+![Ingredients collection](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/tablestructure/ingredientstable.png?raw=true)  
 - The 'recipe' stores the actual recipe with all the other information for e.g. how the recipe is prepared, what ingredients are used and which category it belongs to
-![Recipe collection](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/recipetable.png?raw=true).  
+![Recipe collection](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/tablestructure/recipetable.png?raw=true).  
 - The 'ingredient_index' stores the relation between the recipe and the ingredients of all the recipes for e.g. Chicken recipe and the ingredients of the chicken recipe
-![Ingredients index](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/tablestructure/ingredient_indextable.png?raw=true)
+![Ingredients index](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/tablestructure/ingredient_indextable.png?raw=true)
 
 # Features
 
 * Responsive on all device sizes
 
-![Responsive Mockup](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/recipewebsite.png?raw=true). 
+![Responsive Mockup](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/recipewebsite.png?raw=true). 
 
 * Interactive elements
 
@@ -86,17 +86,17 @@ Based on this information, I then created a database structure called foodrecipe
 
 I created a menu to help enable the user to navigate the app. The menu is responsive and changes to a user-friendly side panel with dropdown functionality on mobile. Users have access via the menu to an additional category, ingredient pages featuring a dashboard to add, delete and edit.
 ### Home page desktop
-![Home page desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Homepage.png?raw=true)
+![Home page desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/homepage.png?raw=true)
 ### Home page mobile
-![Home page mobile](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/iPad10th.png?raw=true)
+![Home page mobile](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/ipad10th.png?raw=true)
 ### Category desktop
-![Category desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Categorieslist.png?raw=true)
+![Category desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/categorieslist.png?raw=true)
 ### Category mobile
-![Category mobile](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/categoriesmobile.png?raw=true)
+![Category mobile](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/categoriesmobile.png?raw=true)
 ### Ingredient desktop
-![Ingredient desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/ingredientlist.png?raw=true)
+![Ingredient desktop](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/ingredientlist.png?raw=true)
 ### Ingredient mobile
-![Ingredient mobile](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/ingredientsmobile.png?raw=true)
+![Ingredient mobile](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/ingredientsmobile.png?raw=true)
 
 # UX features:
 ## Modal
@@ -107,36 +107,36 @@ I have incorporated features to enable Create, Read, Update & Delete functionall
 ## Add a recipe record
 - I created a page called add_recipe.html and added the function in the routes.py file called add_recipe which uses the "GET" and "POST". The GET method is to used to request data , The POST method is used to send the data to the server. I then created and styled input text fields to enable users to input text and also an input field for users to add the recipe details. I used a dropdown list for category and ingredient selection. Specific minimum and maximum entry lengths were applied to each text field.
 ## Add recipe user interface:
-![add_recipe user interface](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Nwerecipe.png?raw=true)
+![add_recipe user interface](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/newerecipe.png?raw=true)
 ## Input fields features:
-![category drop-down list](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Categoryfield.png?raw=true)
-![ingredient drop-down list](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/ingredientfield.png?raw=true)
+![category drop-down list](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/categoryfield.png?raw=true)
+![ingredient drop-down list](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/ingredientfield.png?raw=true)
 ## add_recipe function:
-![add_recipe function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Addrecipefunction.png?raw=true)
+![add_recipe function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/addrecipefunction.png?raw=true)
 ## add_category function:
 I created a categories page to manage categories with blue button to add categories at the top of the page under the title. On click of "Add category" button it redirects to "Add category" page with the help of an add_category.html template. I then created a function to add categories.  
-![add_category function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Addcategoryfunction.png?raw=true)
+![add_category function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/addcategoryfunction.png?raw=true)
 ## add_ingredients function:
 I created a ingredients page to manage ingredients with blue button to add ingredients at the top of the page under the title. On click of "Add ingredient" button it redirects to "Add ingredient" page with the help of an add_ingredients.html template. I then created a function to add ingredients.  
-![add_ingredients function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/AddIngredientfunction.png?raw=true)
+![add_ingredients function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/addIngredientfunction.png?raw=true)
 ## Update a recipe:
 I created edit_recipe.html to edit a recipe record. I fetch a recipe details based on the recipe id from the database. Once found, then the recipe record is updated with edit recipe button. After that's been updated in the database, I redirect to the home page where the list of recipes are displayed
-![Updating a recipe record](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Editrecipefunction.png?raw=true)
+![Updating a recipe record](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/editrecipefunction.png?raw=true)
 ## Update categories
 I created an edit_category.html template and interface and a function to edit categories. The functionality was created in the same way as the create recipe record.
-![Updating a cateory record](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/Editcategoryfunction.png?raw=true)
+![Updating a cateory record](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/editcategoryfunction.png?raw=true)
 ## Update ingredients
 I created an edit_ingredients.html template and interface and a function to edit ingredients. The functionality was created in the same way as the create recipe record.
-![Updating a ingredient record](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/EditIngredientfunction.png?raw=true)
+![Updating a ingredient record](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/editIngredientfunction.png?raw=true)
 ## Delete a recipe:
 The user can delete a recipe by clicking the red delete button at the foot of the recipe record. To do this I created a function as follows: The @app.route decorator is '/delete_recipe', which takes the 'recipe_id' as a variable. I then selected the specific recipe by the ObjectId that matched the 'recipe_id' variable. As soon as the record is removed I redirect the user to home page where the list of recipes are shown.  
-![delete_recipe function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/deleterecipefunction.png?raw=true). 
+![delete_recipe function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/deleterecipefunction.png?raw=true). 
 ## Delete a category:
 The user can delete a record by clicking a delete button for the specific category within the categoires dashboard. To do this, I created a function to delete categories. The functionality was created in the same way as the delete recipe record
-![delete_category function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/deletecategoryfunction.png?raw=true)
+![delete_category function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/deletecategoryfunction.png?raw=true)
 ## Delete a ingredient:
 The user can delete a record by clicking a delete button for the specific ingredient within the ingredients dashboard. To do this, I created a function to delete ingredients. The functionality was created in the same way as the delete recipe record
-![delete_ingredient function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/crudscreenshots/DeleteIngredientfunction.png?raw=true)
+![delete_ingredient function](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/crudscreenshots/deleteIngredientfunction.png?raw=true)
 
 # Technologies Used
 
@@ -179,14 +179,14 @@ To create the Flask application I did the following:
 - created an env.py in which to store sensitive data.
 - created a gitignore file which was set up to ignore env.py as well as the the '__pycache__/' directory.so that data that must be kept secure such as secret keys would not be saved to GitHub.
 - imported os to set up default environment variables in the env.py file, as in the screenshot below:  
-![Environment Variables](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/environmentvarfile.png?raw=true)
+![Environment Variables](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/environmentvarfile.png?raw=true)
 - Initiate the appliation by creating __init__.py file as shown below:
-![Initialize application](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/initfile.png?raw=true)
+![Initialize application](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/initfile.png?raw=true)
 - in run.py import Flask 
 - imported the env package so Heroku would be able to find the environment variables as they would not be pushed to GitHub.
 - created an instance of Flask, stored in a variable called 'app'.
 - told the app how and where to run the application as in the screenshot below:  
-![Run application](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/runfile.png?raw=true)
+![Run application](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/runfile.png?raw=true)
 - the final parameter was set to debug=True, during development, so I could see any actual errors that may appear, instead of a generic server warning. I changed this back to debug=False prior to final deployment.
 - set up a test function to check the app was working correctly in advance of connecting the app to PostgreSQL.
 
@@ -195,14 +195,14 @@ To create the Flask application I did the following:
 - Within a foodrecipe package created models.py file and import a db from the package
 - I created three separate tables, which will be represented by class-based models using SQLAlchemy's ORM.
 - The first table will be for various categories, so let's call this class 'Category', which will use the declarative base from SQLAlchemy's model.
-![Category model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/categorymodel.png?raw=true)
+![Category model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/categorymodel.png?raw=true)
 - The second table will be for various ingredients, so let's call this class 'Ingredients', which
 will use the declarative base from SQLAlchemy's model.
-![Ingredients model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Ingredientsmodel.png?raw=true)
+![Ingredients model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/ingredientsmodel.png?raw=true)
 - The third table will be for each recipe created, so we'll call this class 'Recipe', also using the default db.Model.
-![Recipe model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Recipemodel.png?raw=true)
+![Recipe model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/recipemodel.png?raw=true)
 - And the last table will be relation between the recipe and ingredients
-![Ingredient_index model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/Ingredient_indexmodel.png?raw=true)
+![Ingredient_index model](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/ingredient_indexmodel.png?raw=true)
 - Go ahead and save the file, and let's return back to routes.py file now.
 At the top of the routes, import these classes in order to generate a database next.
 
@@ -257,8 +257,8 @@ I Create an account with ElephantSQL
    - Inside the file, add the following command
       - web: python run.py
    - Open your __init__.py file
-   - Add an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL. [database_url](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/database_uri.png?raw=true)
-   - To ensure that SQLAlchemy can also read our external database, its URL needs to start with “postgresql://”, but we should not change this in the environment variable. Instead, we’ll make an addition to our else statement from the previous step to adjust our DATABASE_URL in case it starts with postgres://:[postgresql](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/static/Features/postgresql.png?raw=true)
+   - Add an if statement before the line setting the SLQALCHEMY_DATABASE_URI and, in the else, set the value to reference a new variable, DATABASE_URL. [database_url](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/database_uri.png?raw=true)
+   - To ensure that SQLAlchemy can also read our external database, its URL needs to start with “postgresql://”, but we should not change this in the environment variable. Instead, we’ll make an addition to our else statement from the previous step to adjust our DATABASE_URL in case it starts with postgres://:[postgresql](https://github.com/fatimagama20/food-receipe/blob/main/foodrecipe/screenshots/postgresql.png?raw=true)
    - Save all your files and then add, commit and push your changes to GitHub
 - Connecting the database to the hosting platform
    - Log into Heroku.com and click “New” and then “Create a new app”
